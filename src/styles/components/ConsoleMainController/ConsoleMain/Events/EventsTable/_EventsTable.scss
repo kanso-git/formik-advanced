@@ -1,0 +1,39 @@
+.dashboard-content{
+    .dashboard-table.events-table{
+        min-width:1600px;
+        &.width-auto-table{
+            min-width:0px;
+        }
+        thead{
+            background-color:#F7E8F1;
+            tr{
+                color:#CA619D;
+            }
+        }
+        @media (min-width: 1900px) {
+            td{
+                //width:auto !important;
+            }
+        }
+    }
+}
+
+.disconnected, .connected{
+    @extend%din;
+    font-size: rem(12px);
+    font-weight: 600;
+    border-radius: 15px;
+    width:100px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+}
+.disconnected{
+    background-color:rgba(237,51,72,0.1);
+    color:#ED3348;
+}
+.connected{
+    color:#25C197;
+    background-color:rgba(37,193,151,0.1);
+}

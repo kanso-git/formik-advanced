@@ -1,0 +1,89 @@
+.reports {
+    .table-container {
+        overflow: unset;
+    }
+    
+    .table-header {
+        display: flex;
+        border-bottom: 1px solid #F5F5F5;
+        align-items: center;
+        padding: rem(17px 20px 17px 25px);
+        flex-wrap: wrap;
+
+        .table-title {
+            h3 {
+                color: #373C46;
+                font-size: rem(16px);
+                @extend  %din;
+                font-weight: bold;
+
+            }
+            p {
+                color: #373C46;
+                font-size: rem(13px);
+                @extend %opensans;
+            }            
+        }
+        .table-controls {
+            display: flex;
+            margin-left: auto;
+            align-items: center;
+
+            .table-drag,
+            .btn-table-actions {
+                width: 30px;
+                height: 30px;
+                border: 0;
+                background: none;
+                display: flex;
+                align-items: center;
+                margin: rem(0 7px);
+            }
+
+            .table-actions {
+                margin-right: rem(7px);
+                position: relative;
+
+                .table-actions-menu {
+                    position: absolute;
+                    background: #fff;
+                    z-index: 10;
+                    width: 150px;
+                    min-height: 186px;
+                    border-radius: 4px;
+                    box-shadow: 0 0 6px rgba(0, 0, 0, .16);
+                    display: none;
+
+                    ul {
+                        padding: 15px 0;
+                        li {
+                            list-style: none;
+                            display: flex;
+                            align-items: center;
+                            padding: rem(5px 15px);
+                            margin: rem(7px 0);
+                            cursor: pointer;
+                            .icon {
+                                margin-right: rem(10px);
+                                width: 20px;
+                                text-align: center;
+                            }
+                            
+                            span {
+                                color: #666D7B;
+                                font-size: rem(14px);
+                                @extend %din;
+                            }
+                        }
+                    }
+                }
+                &.show-menu {
+                    .table-actions-menu {
+                        display: block;
+                    }
+                }
+            }
+
+        }
+    }
+}

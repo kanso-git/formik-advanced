@@ -1,0 +1,56 @@
+// Console Main Styles
+@import "ConsoleMain/ConsoleMain";
+
+// Header
+@import "ConsoleMain/ConsoleHeader/ConsoleHeader";
+
+// Side Menu
+@import "ConsoleMain/SideMenu/SideMenu";
+
+// Console Content
+@import "ConsoleMain/ConsoleContent/ConsoleContent";
+
+// List View
+@import "ConsoleMain/ConsoleContent/ListView/ListView";
+
+// Card View
+@import "ConsoleMain/ConsoleContent/CardView/CardView";
+
+// User Management
+@import "ConsoleMain/UserManagement/UserManagement";
+
+// Group Management
+@import "ConsoleMain/GroupManagement/GroupManagement";
+
+// Console Modals
+@import "ConsoleMain/Modals/Modals";
+
+// Console Forms
+@import "ConsoleMain/Forms/Forms";
+
+// Empty Screen
+@import "ConsoleMain/EmptyScreen/EmptyScreen";
+
+// Console Login
+@import "ConsoleMain/Login/Login";
+
+// Notification
+@import "ConsoleMain/Notification/Notification";
+
+// Events
+@import "ConsoleMain/Events/EventsMainController";
+
+// Etat papier distributeur
+@import "ConsoleMain/PaperDistributor/PaperDistributor";
+
+// Email Notifications
+@import "ConsoleMain/EmailNotifications/EmailNotifications";
+
+// Tableau de bord 
+@import "ConsoleMain/Dashboard/DashboardMainController";
+
+// Configuration
+@import "ConsoleMain/Configuration/ConfigurationMainController";
+
+// Reports
+@import "ConsoleMain/Reports/ReportsMainController";

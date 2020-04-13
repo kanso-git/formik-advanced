@@ -1,0 +1,72 @@
+.text-center {
+    text-align: center;
+}
+
+%opensans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+%din {
+    font-family: 'DIN', sans-serif;
+}
+
+%tr {
+    transition: all 0.5s ease;
+}
+
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.opacity05 {
+    opacity: 0.5;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.h-a {
+    height: auto;
+}
+
+// margins & paddings
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+.mr-0 {
+    margin-right: 0 !important;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+// width classes
+.min-width-1000 {
+    min-width: 1000px !important;
+}
+.min-width-1600 {
+    min-width: 1600px !important;
+}
+
+.react-tel-input input {
+    height: 45px !important;
+    width: 100% !important;
+}

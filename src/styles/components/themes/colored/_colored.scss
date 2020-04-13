@@ -1,0 +1,40 @@
+.theme-colored {
+    background-color: #F5F5F7;
+    .header .time-date .date,
+    .header .time-date .time {
+        color: $theme-colored;
+    }
+
+    .services .intro-text {
+        color: $theme-colored;
+    }
+
+    .services .service-arrows .btn {
+        border-color: $theme-colored;
+        color: $theme-colored;
+        background: transparent;
+
+        &:hover {
+            background: darken($color: #fff, $amount: 10);
+        }
+    }
+
+    .header .languages .btn-lang {
+        border-color: $theme-colored;
+        color: $theme-colored;
+    }
+
+    .services .service-btn .btn-scan {
+        border-color: $theme-colored;
+        color: $theme-colored;
+        background: transparent;
+
+        &:hover {
+            background: darken($color: #fff, $amount: 10);
+        }
+    }
+
+    .footer p {
+        color: $theme-colored;
+    }
+}

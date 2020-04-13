@@ -1,0 +1,42 @@
+.events{
+    .subheader{
+        padding-top:rem(30px);
+        .search {
+            margin-right: rem(15px);
+            @media(max-width: 1100px) {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    }
+    
+
+    .dashboard-tabs {
+        .tab {
+            &.active {
+                border-color: #CA619D;
+                color: #CA619D;
+            }
+            &:hover {
+                color: #CA619D;
+            }
+        }
+    }
+
+    .select-actions {
+        .custom-select {
+            .select-menu {
+                width: 620px;
+                padding: rem(20px);
+                max-width: calc(100vw - 100px);
+                h3{
+                    @extend%din;
+                    font-size:rem(14px);
+                    font-weight: bold;
+                    margin-bottom: rem(13px);
+                    color:#666D7B;
+                }
+            }
+        }
+    }
+}

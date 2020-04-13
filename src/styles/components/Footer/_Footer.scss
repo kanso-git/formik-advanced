@@ -1,0 +1,94 @@
+/*=============================================
+=                   Footer                    =
+=============================================*/
+.footer {
+	text-align: center;
+	position: relative;
+	min-height: 48px;
+	p {
+		font-size: rem(20px);
+		color: #fff;
+		padding: rem(13px 15px);
+		@media (max-width: 1670px) {
+			font-size: rem(18px);
+		}
+		@media (max-width: 1500px) {
+			font-size: rem(16px);
+		}
+	}
+
+	.left {
+		padding-left: rem(30px);
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		@include sm {
+			padding-left: rem(5px);
+		}
+	}
+
+	.right {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	.center {
+		width: 100%;
+		padding: rem(0 300px);
+		@media (max-width: 1670px) {
+			padding: rem(0 255px);
+		}
+		@media (max-width: 1500px) {
+			padding: rem(0 245px);
+        }
+        @media (max-width: 1024px) {
+			display: none;
+        }
+	}
+
+	.connected-to {
+		p {
+			@extend %opensans;
+		}
+	}
+
+	.branch-name {
+		text-align: center;
+		background: rgba(0, 0, 0, 0.2);
+		width: 284px;
+		min-height: 53px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@media (max-width: 1670px) {
+			width: 250px;
+			min-height: 45px;
+		}
+		@media (max-width: 1500px) {
+			width: 240px;
+		}
+		p {
+			font-weight: bold;
+		}
+	}
+	.footer-logo {
+		position: absolute;
+		right: 40px;
+		bottom: 40px;
+		box-shadow: rem(0 0 25px rgba(0, 0, 0, 0.16));
+		border-radius: 20px;
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: rem(15px 20px);
+		min-height: 111px;
+		max-width: 260px;
+		img {
+			vertical-align: middle;
+		}
+	}
+}
+
+/*==============  End of Footer  ==============*/

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="545" height="309.003" viewBox="0 0 545 309.003">
+  <defs>
+    <filter id="new-ticket-bg" x="0" y="0" width="545" height="309.003" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#new-ticket-bg)">
+    <path id="new-ticket-bg-2" data-name="new-ticket-bg" d="M-995-11292h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-20v3h-7v-3h-17.248a24.5,24.5,0,0,0-7.96-14.8,24.427,24.427,0,0,0-7.2-4.461A24.367,24.367,0,0,0-1448-11316V-11531a24.5,24.5,0,0,0,23.874-22H-1407v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h7v3h20v-3h2c0,.154-.005.322-.005.5a24.35,24.35,0,0,0,1.925,9.537,24.424,24.424,0,0,0,5.251,7.788,24.425,24.425,0,0,0,7.788,5.251A24.332,24.332,0,0,0-948.5-11531c.192,0,.349,0,.5,0V-11316c-.193,0-.35,0-.5,0a24.361,24.361,0,0,0-17.162,7.014,24.432,24.432,0,0,0-5.275,7.626A24.33,24.33,0,0,0-973-11292h-2v-3h-20v3Z" transform="translate(1470.5 11578.5)" fill="#fff"/>
+  </g>
+</svg>

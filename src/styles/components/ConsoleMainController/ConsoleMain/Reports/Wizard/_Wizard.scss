@@ -1,0 +1,233 @@
+.wizard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /*----------  Wizard Header  ----------*/
+    .wizard-header {
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: rem(10px);
+        ul {
+            display: flex;
+            @include sm {
+                flex-wrap: wrap;
+            }
+        }
+        .item {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            width: calc(100% / 4);
+            margin-bottom: rem(15px);
+
+            &:after {
+                content: '';
+                display: block;
+                background: url('../../../../../images/icons/dashed-line.svg')
+                    no-repeat;
+                height: 1px;
+                width: 70px;
+                margin: auto;
+            }
+            @include lg {
+                &:after {
+                    display: none;
+                }
+            }
+
+            @include sm {
+                width: calc(100% / 2);
+            }
+
+            @include xs {
+                width: 100%;
+            }
+
+            &:last-child:after {
+                display: none;
+            }
+
+            .item-number {
+                width: 34px;
+                height: 34px;
+                background: #ebebeb;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @extend %din;
+                font-size: rem(20px);
+                font-weight: bold;
+                color: rgba(100, 98, 113, 0.2);
+                margin-right: rem(18px);
+                border: 1.5px solid transparent;
+                flex-shrink: 0;
+                @include lg {
+                    margin-right: rem(11px);
+                }
+            }
+
+            .item-content {
+                h4 {
+                    font-size: rem(15px);
+                    color: rgba(100, 98, 113, 0.2);
+                    font-weight: normal;
+                    text-transform: uppercase;
+                }
+                p {
+                    color: #646271;
+                    font-size: rem(14px);
+                    margin-top: 4px;
+                    display: none;
+                }
+            }
+
+            &.finished {
+                .item-number {
+                    border-color: #fca311;
+                    color: #fca311;
+                    background: #ffffff;
+                }
+
+                .item-content {
+                    h4 {
+                        color: #373c46;
+                        font-weight: bold;
+                    }
+                    p {
+                        display: block;
+                    }
+                }
+            }
+
+            &.current {
+                .item-number {
+                    background: #fca311;
+                    color: #ffffff;
+                    box-shadow: 0 0 0 7px rgba(252, 163, 17, 0.2);
+                }
+
+                .item-content {
+                    h4 {
+                        color: #373c46;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    /*----------  Wizard Content  ----------*/
+
+    .wizard-content {
+        padding-top: rem(25px);
+        .step-title {
+            color: #666d7b;
+            font-size: rem(16px);
+            @extend %opensans;
+            font-weight: normal;
+            margin-top: rem(25px);
+            margin-bottom: 25px;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -7.5px;
+            margin-left: -7.5px;
+
+            .option {
+                min-width: 225px;
+                height: 50px;
+                box-shadow: inset 0 0 0 1px #b8c6dc;
+                border-radius: 4px;
+                padding: rem(5px 15px);
+                margin: rem(0 7.5px 15px 7.5px) !important;
+
+                .option-content {
+                    p {
+                        font-weight: normal !important;
+                    }
+                }
+
+                &.selected {
+                    box-shadow: inset 0 0 0 1.5px #3d6fde;
+                    .option-content {
+                        p {
+                            font-weight: bold !important;
+                            color: #3d6fde !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .warning {
+            margin-top: rem(25px);
+            color: #373c46;
+            font-size: rem(14px);
+            @extend %din;
+
+            img {
+                vertical-align: bottom;
+                margin-right: rem(12px);
+            }
+        }
+
+        .custom-select-checklist {
+            width: 382px;
+            max-width: 100%;
+        }
+    }
+}
+
+.dashboard {
+    .custom-select-checklist {
+        .select-menu {
+            padding: rem(5px);
+            .select-options {
+                height: 195px;
+                overflow: auto;
+            }
+        }
+        .option {
+            margin: rem(15px 12px);
+            .option-content {
+                padding-left: rem(15px);
+                p {
+                    color: #4f6080;
+                    font-size: rem(12px);
+                    font-family: 'Open Sans', sans-serif;
+                }
+            }
+
+            &.select-all {
+                border-bottom: 1px solid #e8e8e8;
+                padding-bottom: 15px;
+
+                .checkmark {
+                    background-color: #3d6fde;
+                    border-color: #3d6fde;
+                    img {
+                        display: none;
+                        &.unchecked-img {
+                            display: block;
+                        }
+                    }
+                }
+
+                input:checked ~ .checkmark {
+                    img {
+                        display: block;
+                        &.unchecked-img {
+                            display: none;
+                        }
+                    }
+                }
+                .option-content p {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="426.002" height="303.998" viewBox="0 0 426.002 303.998">
+  <defs>
+    <filter id="new-ticket-bg-small" x="0" y="0" width="426.002" height="303.998" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#new-ticket-bg-small)">
+    <path id="new-ticket-bg-small-2" data-name="new-ticket-bg-small" d="M334.968,259h-6.856v-2.944H308.524V259h-6.856v-2.944h-19.59V259h-6.856v-2.944H255.633V259h-6.856v-2.944H229.189V259h-6.856v-2.944H202.744V259h-6.856v-2.944H176.3V259h-6.856v-2.944H149.854V259H143v-2.944H123.409V259h-6.856v-2.944H96.964V259H90.108v-2.944H70.519V259H63.663v-2.944H44.074V259H37.218v-2.944h-12a24.035,24.035,0,0,0-7.967-14.669,23.9,23.9,0,0,0-7.208-4.352,23.859,23.859,0,0,0-8.577-1.581c-.489,0-.983.015-1.47.044V24.483c.481.029.975.044,1.47.044A23.914,23.914,0,0,0,17.6,18.282,23.989,23.989,0,0,0,25.34,2.944H37.218V0h6.856V2.944H63.663V0h6.855V2.944H90.108V0h6.856V2.944h19.589V0h6.856V2.944H143V0h6.856V2.944h19.589V0H176.3V2.944h19.589V0h6.856V2.944h19.589V0h6.856V2.944h19.589V0h6.856V2.944h19.588V0h6.856V2.944h19.59V0h6.856V2.944h19.588V0h6.856V2.944h19.588V0h1.963c0,.153,0,.318,0,.491a23.981,23.981,0,0,0,7.029,17,23.917,23.917,0,0,0,7.627,5.151,23.81,23.81,0,0,0,9.34,1.889c.164,0,.329,0,.491,0V235.458c-.152,0-.312,0-.491,0A24.006,24.006,0,0,0,356.52,259h-1.963v-2.944H334.968V259Z" transform="translate(22.5 22.5)" fill="#fff"/>
+  </g>
+</svg>

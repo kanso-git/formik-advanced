@@ -1,0 +1,128 @@
+.dashboard-overview {
+    .page-head-container {
+        .page-title {
+            h1 {
+                color: #195190;
+                font-size: rem(23px);
+            }
+        }
+    }
+}
+
+.dashboard-overview-content {
+	background: #fff;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+	margin: rem(0 23px 20px 23px);
+	border-radius: rem(10px);
+	padding: rem(20px 25px);
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+
+	.dashboard-overview-header {
+		display: flex;
+		align-items: center;
+        justify-content: space-between;
+        margin-bottom: rem(15px);
+		.date {
+			color: #666d7b;
+			font-size: rem(16px);
+			@extend %din;
+			font-weight: normal;
+            margin: rem(5px 10px 5px 0);
+		}
+	}
+
+	.overview-row {
+		display: flex;
+		margin-right: -10px;
+		margin-left: -10px;
+		flex-wrap: wrap;
+        margin-bottom: rem(25px);
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+		.row-title {
+			width: 100%;
+			color: #373c46;
+			font-size: rem(16px);
+			@extend %din;
+			font-weight: bold;
+			margin: rem(0 10px 5px 10px);
+		}
+
+		.overview-item-container {
+			width: calc(100% / 3);
+			padding: rem(10px);
+			@media(max-width: 1200px) {
+				width: calc(100% / 2);
+			}
+			@media(max-width: 850px) {
+				width: 100%;
+			}
+		}
+
+		.overview-item {
+			border: 1px solid #d9d9d9;
+			border-radius: 5px;
+			display: flex;
+			min-height: 105px;
+			align-items: center;
+            cursor: pointer;
+            @extend %tr;
+            
+            &:hover {
+                border-color: #195190;
+            }
+
+			.icon {
+				width: 105px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				img {
+					max-width: 42px;
+					max-height: 42px;
+				}
+			}
+
+			.item-content {
+				flex-grow: 1;
+				.numbers {
+					font-size: rem(32px);
+					@extend %din;
+					font-weight: 900;
+					display: flex;
+					.current {
+						color: #373c46;
+					}
+					.separator {
+						margin: 0 3px;
+						color: #959ba5;
+					}
+					.total {
+						color: #959ba5;
+					}
+				}
+
+				.item-title {
+					color: #666d7b;
+					@extend %din;
+					font-size: rem(14px);
+					font-weight: bold;
+				}
+			}
+
+			.arrow {
+				margin-right: rem(30px);
+				i {
+					color: #959ba5;
+					font-size: rem(17px);
+				}
+			}
+		}
+	}
+}

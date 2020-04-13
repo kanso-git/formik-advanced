@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10.31" height="10.896" viewBox="0 0 10.31 10.896">
+  <g id="card-view" transform="translate(10.31 10.896) rotate(180)">
+    <g id="Group_35096" data-name="Group 35096" transform="translate(0 5.97)">
+      <path id="Path_49431" data-name="Path 49431" d="M4.661,52.986A.373.373,0,0,0,4.3,52.6H.365A.373.373,0,0,0,0,52.986V57.14a.373.373,0,0,0,.365.386H4.3a.373.373,0,0,0,.365-.386Z" transform="translate(0 -52.6)" fill="#959ba5"/>
+    </g>
+    <g id="Group_35097" data-name="Group 35097" transform="translate(5.649)">
+      <path id="Path_49432" data-name="Path 49432" d="M57.261.386A.373.373,0,0,0,56.9,0H52.965A.373.373,0,0,0,52.6.386V4.54a.373.373,0,0,0,.365.386H56.9a.373.373,0,0,0,.365-.386Z" transform="translate(-52.6)" fill="#959ba5"/>
+    </g>
+    <g id="Group_35098" data-name="Group 35098" transform="translate(5.649 5.97)">
+      <path id="Path_49433" data-name="Path 49433" d="M57.261,52.986A.373.373,0,0,0,56.9,52.6H52.965a.373.373,0,0,0-.365.386V57.14a.373.373,0,0,0,.365.386H56.9a.373.373,0,0,0,.365-.386Z" transform="translate(-52.6 -52.6)" fill="#959ba5"/>
+    </g>
+    <g id="Group_35099" data-name="Group 35099">
+      <path id="Path_49434" data-name="Path 49434" d="M4.661.386A.373.373,0,0,0,4.3,0H.365A.373.373,0,0,0,0,.386V4.54a.373.373,0,0,0,.365.386H4.3a.373.373,0,0,0,.365-.386Z" transform="translate(0)" fill="#959ba5"/>
+    </g>
+  </g>
+</svg>

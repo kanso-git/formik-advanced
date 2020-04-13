@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43">
+  <g id="cancel-input-btn" transform="translate(-1278 -418)">
+    <circle id="Ellipse_35" data-name="Ellipse 35" cx="21.5" cy="21.5" r="21.5" transform="translate(1278 418)" fill="#707070" opacity="0.144"/>
+    <g id="Group_40767" data-name="Group 40767" transform="translate(1291.124 431.577)" opacity="0.333">
+      <g id="Group_40600" data-name="Group 40600" transform="translate(0 0)">
+        <path id="Path_114277" data-name="Path 114277" d="M358,355.245l-4.959-4.959L358,345.328a1.95,1.95,0,0,0-2.758-2.758l-4.959,4.959-4.959-4.959a1.95,1.95,0,1,0-2.758,2.758l4.959,4.959-4.959,4.959A1.95,1.95,0,0,0,345.329,358l4.959-4.959L355.246,358A1.95,1.95,0,0,0,358,355.245Z" transform="translate(-342 -341.999)" fill="#707070"/>
+      </g>
+    </g>
+  </g>
+</svg>

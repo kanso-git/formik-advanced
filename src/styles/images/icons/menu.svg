@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.936" height="12.834" viewBox="0 0 24.936 12.834">
+  <g id="menu" transform="translate(0 -1)">
+    <g id="Menu_1_" transform="translate(0 0)">
+      <path id="Path_115007" data-name="Path 115007" d="M24.157,98.1H.779a.941.941,0,0,1,0-1.854H24.157a.941.941,0,0,1,0,1.854Z" transform="translate(0 -95.243)" fill="#373c46"/>
+      <path id="Path_115008" data-name="Path 115008" d="M.779,180.455H24.157a.941.941,0,0,1,0,1.854H.779a.941.941,0,0,1,0-1.854Z" transform="translate(0 -173.965)" fill="#373c46"/>
+      <path id="Path_115009" data-name="Path 115009" d="M121.23,264.667h18.542a.927.927,0,0,1,0,1.854H121.23a.927.927,0,1,1,0-1.854Z" transform="translate(-120.303 -252.687)" fill="#373c46"/>
+    </g>
+  </g>
+</svg>

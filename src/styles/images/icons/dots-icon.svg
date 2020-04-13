@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="Group_43174" data-name="Group 43174" transform="translate(-1239 -97)">
+    <g id="show-more-button-with-three-dots" transform="translate(1097 102)">
+      <g id="more-vert" transform="translate(153)">
+        <path id="Path_118727" data-name="Path 118727" d="M154.921,3.842A1.921,1.921,0,1,0,153,1.921,1.927,1.927,0,0,0,154.921,3.842Zm0,1.921a1.921,1.921,0,1,0,1.921,1.921A1.927,1.927,0,0,0,154.921,5.763Zm0,5.763a1.921,1.921,0,1,0,1.921,1.921A1.927,1.927,0,0,0,154.921,11.525Z" transform="translate(-153)" fill="#959ba5"/>
+      </g>
+    </g>
+    <rect id="Rectangle_25085" data-name="Rectangle 25085" width="25" height="25" transform="translate(1239 97)" fill="none"/>
+  </g>
+</svg>

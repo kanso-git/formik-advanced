@@ -1,0 +1,27 @@
+.playlist-contaier {
+    height: 100vh;
+    width: 100vw;
+}
+.playlist {
+    border: 1px solid red;
+    width: 90%;
+    height: 90%;
+    margin: 20px;
+}
+
+.detail-block {
+    height: 20%;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slides {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+}

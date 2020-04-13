@@ -1,0 +1,229 @@
+.notification-page-header {
+	background-color: #fff;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+	min-height: 0px;
+	justify-content: left;
+	.side-menu-trigger {
+		display: inline-block;
+		text-align: center;
+		width: 58px;
+	}
+	.breadcrumb {
+		display: inline-block;
+		padding: rem(18px);
+		border-left: 1px solid #dadbdd;
+		font-weight: 700;
+		@extend%din;
+		font-size: rem(17px);
+		color: #195190;
+	}
+	button {
+		border: 0px;
+		background-color: transparent;
+	}
+}
+.notification-page-wrapper {
+	max-width: calc(100% - 110px);
+	margin-left: rem(55px);
+	@media(max-width: 1200px) {
+		display: flex;
+		flex-direction: column;
+		.first-card {
+			order: 2;
+			margin-bottom: rem(20px);
+		}
+		.last-card {
+			order: 1;
+			margin-bottom: rem(20px);
+		}
+	}
+	@media(max-width: 700px) {
+		max-width: 100%;
+		margin: rem(0 20px);
+	}
+	/*----------  Notifications  ----------*/
+	.notifications-menu {
+		right: 0;
+		height: auto;
+		max-height: calc(100vh - 200px);
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		.notifications-list {
+			overflow: auto;
+			flex-grow: 1;
+			padding-right: rem(15px);
+			.notification {
+				display: flex;
+				margin-bottom: 15px;
+				position: relative;
+				border-radius: 5px;
+				background: #fff;
+				padding: rem(15px 25px 15px 35px);
+				box-shadow: 0 0 10px rgba(82, 82, 82, 0.12);
+
+				.notification-content {
+					flex-grow: 1;
+					padding-right: rem(10px);
+
+					h6 {
+						font-size: rem(14px);
+						color: #373c46;
+						@extend %opensans;
+						font-weight: normal;
+					}
+
+					p {
+						font-size: rem(12px);
+						color: #959ba5;
+						@extend %opensans;
+						font-weight: normal;
+					}
+				}
+
+				.notification-label {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					.label {
+						background: #e8f1ff;
+						border-radius: 3px;
+						min-width: 59px;
+						min-height: 21px;
+						font-size: 9px;
+						@extend%opensans;
+						font-weight: 600;
+						color: #3d6fde;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						padding: rem(5px 10px);
+					}
+				}
+
+				&.new {
+					&::before {
+						content: "";
+						width: 5px;
+						height: 5px;
+						border-radius: 50%;
+						background: #ed3348;
+						position: absolute;
+						left: 20px;
+						top: calc(50% - 3px);
+					}
+				}
+			}
+		}
+	}
+	.notification-page-card {
+		display: inline-block;
+		margin-right: -4px;
+		vertical-align: text-top;
+		&.first-card {
+			width: 70%;
+			@media(max-width: 1200px) {
+				width: 100%;
+			}
+		}
+		&.last-card {
+			width: 30%;
+			height: 100%;
+			@media(max-width: 1200px) {
+				width: 100%;
+			}
+		}
+	}
+	.btn-load-more {
+		text-align: center;
+		border: 1px solid #195190;
+		color: #195190;
+		font-size: 1.3rem;
+		padding: rem(0 20px);
+		border-radius: 4px;
+		margin-top: 20px;
+		display: inline-block;
+		background-color: transparent;
+		height: 40px;
+		line-height: 40px;
+		font-weight: 700;
+		text-align: center;
+        text-decoration: none;
+        @extend %tr;
+		&:hover {
+			background-color: #195190;
+			color: #fff;
+		}
+	}
+	/*----------  Notifications Filter  ----------*/
+	.notification-page-filter {
+		padding: rem(30px 8px 15px 35px);
+		box-shadow: -3px 3px 15px rgba(105, 105, 105, 0.12);
+		border-radius: 5px;
+		background: #fff;
+		max-width: 100%;
+		margin: 0 1rem 2rem 1rem;
+		height: calc(100vh - 150px);
+		@media(max-width: 1200px) {
+			height: auto;
+		}
+		h2 {
+			margin-bottom: rem(20px);
+		}
+		h3 {
+			margin-bottom: rem(15px);
+		}
+	}
+	.filter-page-row {
+		display: flex;
+		@media(max-width: 750px) {
+			flex-wrap: wrap-reverse;
+		}
+		.filter-page-col {
+			flex: 1;
+			@media(max-width: 750px) {
+				flex-basis: 100%;
+			}
+			.option {
+				margin-bottom: 10px;
+				.option-content {
+					margin-left: 5px;
+					font-size: rem(14px);
+					color: #959ba5;
+					@extend%din;
+					.date-range-btn {
+						color: #3d6fde;
+						text-decoration: none;
+						position: absolute;
+						border: 0px;
+						background-color: transparent;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+	h2 {
+		margin-bottom: 30px;
+		font-weight: 700;
+		font-size: rem(17px);
+		color: #373c46;
+	}
+	h3 {
+		margin-bottom: 10px;
+		font-weight: 700;
+		font-size: rem(14px);
+		@extend%din;
+		color: #666d7b;
+		text-transform: uppercase;
+	}
+}
+
+.notification-page-filter {
+	.circle-checkbox input:checked ~ .checkmark {
+		background-color: #3d6fde;
+		border-color: #3d6fde;
+	}
+}

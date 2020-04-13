@@ -1,0 +1,96 @@
+.page_error {
+    background-image: url("images/main/error-page-bg.svg");
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    .page-inner-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .page-content {
+        width: 1706px;
+        height: 915px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            color: #253056;
+            font-size: rem(80px);
+            margin-bottom: rem(10px);
+        }
+        p {
+            color: #646464;
+            font-size: rem(35px);
+            line-height: rem(47px);
+            @extend %opensans;
+        }
+        .screen-load-in {
+            font-size: rem(30px);
+            color: #959595;
+            @extend %din;
+            font-weight: bold;
+            margin-top: 165px;
+            span {
+                width: 108px;
+                height: 65px;
+                background: #253056;
+                border-radius: rem(47px);
+                color: #fff;
+                @extend %opensans;
+                font-size: rem(37px);
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: rem(0 24px);
+            }
+        }
+
+        .call-center {
+            margin-top: rem(65px);
+            p {
+                color: #959595;
+                font-size: rem(34px);
+                margin-bottom: rem(15px);
+            }
+            .number {
+                min-width: 447px;
+                min-height: 81px;
+                background: #253056;
+                border-radius: rem(47px);
+                color: #fff;
+                @extend %opensans;
+                font-size: rem(40px);
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: rem(10px 35px);
+                line-height: 1;
+            }
+        }
+    }
+}
+.page_disconnection {
+    p {
+        max-width: 700px;
+    }
+    .page-description {
+        margin-bottom: rem(25px);
+    }
+}

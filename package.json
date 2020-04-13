@@ -1,39 +1,66 @@
 {
-  "name": "formik-test",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "formik-test",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@material-ui/core": "^4.9.10",
+        "@material-ui/icons": "^4.9.1",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "@types/array-move": "^2.0.0",
+        "@types/jest": "^24.0.0",
+        "@types/node": "^12.0.0",
+        "@types/node-sass": "^4.11.0",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.9.0",
+        "@types/react-dropzone": "^5.1.0",
+        "@types/react-sortable-hoc": "^0.7.1",
+        "@types/shortid": "^0.0.29",
+        "@types/yup": "^0.26.35",
+        "array-move": "^2.2.1",
+        "env-cmd": "^10.1.0",
+        "formik": "^2.1.4",
+        "node-sass": "^4.13.1",
+        "npm-run-all": "^4.1.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-dropzone": "^10.2.2",
+        "react-scripts": "3.4.1",
+        "react-sortable-hoc": "^1.11.0",
+        "shortid": "^2.2.15",
+        "typescript": "~3.7.2",
+        "yup": "^0.28.3"
+    },
+    "scripts": {
+        "build:css": "node-sass src/styles/ -o src/styles/ ",
+        "watch:css": "npm run build:css && node-sass src/styles/ -o src/styles/ -w -r",
+        "start:js": "env-cmd -f ./config/localhost.env react-scripts start",
+        "start": "npm-run-all -p watch:css start:js",
+        "build:js": "env-cmd -f ./config/dev.env react-scripts build",
+        "build": "npm-run-all build:*",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

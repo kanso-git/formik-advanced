@@ -1,0 +1,46 @@
+.dashboard-content-wrapper {
+    &.user-management {
+        .dashboard-header {
+            .subheader {
+                .btn-create {
+                    background: #195190;
+                    &:hover {
+                        background: darken($color: #195190, $amount: 5);
+                    }
+                }
+                .view-control .view-item.active {
+                    background: #195190;
+                }
+            }
+        }
+        .dashboard-content {
+            .cards-container {
+                .card {
+                    .card-head {
+                        .top-label {
+                            background: #E8F1FF;
+                            color: #3D6FDE;
+                        }
+                    }
+    
+                    .card-content {
+                        h3 {
+                            font-size: rem(14px);
+                            margin-bottom: rem(5px);
+                            line-height: rem(18px);
+                            min-height: 22px;
+                        }
+                        .info-label {
+                            background: #E8F1FF;
+                            color: #3D6FDE;
+                            margin-bottom: rem(26px);
+                        }
+                    }
+                    &.selected {
+                        box-shadow: 0 0 0 1.5px #3D6FDE;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<svg id="media-background" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_39232" data-name="Rectangle 39232" width="26" height="26" transform="translate(-13686.508 -4115)" fill="#fafcff"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="26" height="13" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect width="39" height="13" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_50233" data-name="Group 50233" transform="translate(13686.508 4115)" clip-path="url(#clip-path)">
+    <g id="Group_50232" data-name="Group 50232" transform="translate(-13686.508 -4115)">
+      <g id="Repeat_Grid_354" data-name="Repeat Grid 354" transform="translate(0 13)" clip-path="url(#clip-path-2)">
+        <g id="Group_50102" data-name="Group 50102" transform="translate(1324 4177)">
+          <rect id="Rectangle_38972" data-name="Rectangle 38972" width="13" height="13" transform="translate(-1324 -4177)" fill="#fff"/>
+          <rect id="Rectangle_38973" data-name="Rectangle 38973" width="13" height="13" transform="translate(-1311 -4177)" fill="#d9d9d9"/>
+        </g>
+      </g>
+      <g id="Repeat_Grid_359" data-name="Repeat Grid 359" clip-path="url(#clip-path-3)">
+        <g transform="translate(1324 4144)">
+          <g id="Group_50167" data-name="Group 50167" transform="translate(-2622 -8308) rotate(180)">
+            <rect id="Rectangle_39102" data-name="Rectangle 39102" width="13" height="13" transform="translate(-1324 -4177)" fill="#fff"/>
+            <rect id="Rectangle_39103" data-name="Rectangle 39103" width="13" height="13" transform="translate(-1311 -4177)" fill="#d9d9d9"/>
+          </g>
+        </g>
+        <g transform="translate(1350 4144)">
+          <g id="Group_50168" data-name="Group 50168" transform="translate(-2622 -8308) rotate(180)">
+            <rect id="Rectangle_39104" data-name="Rectangle 39104" width="13" height="13" transform="translate(-1324 -4177)" fill="#fff"/>
+            <rect id="Rectangle_39105" data-name="Rectangle 39105" width="13" height="13" transform="translate(-1311 -4177)" fill="#d9d9d9"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

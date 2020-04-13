@@ -1,0 +1,311 @@
+/*=============================================
+=                  Service                  =
+=============================================*/
+.service {
+    flex: 0 0 calc(100% / 3);
+    padding: rem(15px);
+
+    .service-inner {
+        background-size: cover;
+        box-shadow: rem(0 0 25px rgba(70, 70, 70, 0.16));
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        padding: rem(40px 30px);
+        min-width: 368px;
+        height: 280px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .service-content {
+        position: relative;
+        z-index: 10;
+        .service-title {
+            font-size: rem(31px);
+            font-weight: bold;
+            line-height: rem(32px);
+            word-break: break-word;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 42px;
+                height: 4px;
+                background: #192039;
+                margin-top: rem(10px);
+            }
+        }
+
+        .service-description {
+            font-size: rem(17px);
+            margin-top: rem(30px);
+            line-height: rem(23px);
+            @extend %opensans;
+            padding-right: rem(15px);
+            word-break: break-word;
+        }
+    }
+
+    .service-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        z-index: 10;
+
+        .info-icon {
+            margin-bottom: 5px;
+            padding: rem(15px);
+            margin-right: rem(-15px);
+            margin-top: rem(-15px);
+            cursor: pointer;
+            i {
+                font-size: rem(40px);
+            }
+        }
+
+        .main-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #192039;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+            margin-top: auto;
+            i {
+                color: #fff;
+                font-size: 45px;
+            }
+            img {
+                max-width: 65%;
+                max-height: 65%;
+            }
+        }
+    }
+
+    
+    /*----------  service colors  ----------*/
+
+    &.color-big-stone {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #192039;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #192039;
+        }
+    }
+
+    &.color-matisse {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #195190;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #195190;
+        }
+    }
+
+    &.color-blue-lagoon {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #02787C;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #02787C;
+        }
+    }
+
+    &.color-chestnut-rose {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #D55050;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #D55050;
+        }
+    }
+
+    &.color-dingley {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #707744;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #707744;
+        }
+    }
+
+    &.color-grape {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #4D1F58;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #4D1F58;
+        }
+    }
+
+    &.color-tapestry {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #BE657D;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #BE657D;
+        }
+    }
+
+    &.color-elephant {
+
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #104646;
+        }
+
+        .main-icon,
+        .service-title::after {
+            background: #104646;
+        }
+    }
+
+    
+    /*----------  Colorful Service  ----------*/
+    &.colorful {
+        color: #fff;
+        .service-content {
+            .service-title {
+                &:after {
+                    background: #fff;
+                }
+            }
+            .service-icons .main-icon {
+                background: #192039;
+            }
+        }
+        .service-title,
+        .service-description,
+        .info-icon {
+            color: #fff;
+        }
+
+
+        &.color-big-stone {
+            .service-inner .service-background{
+                background: #192039;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #192039, $amount: 7);
+            }
+        }
+        &.color-matisse {
+            .service-inner .service-background{
+                background: #195190;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #195190, $amount: 7);
+            }
+        }
+        &.color-blue-lagoon {
+            .service-inner .service-background{
+                background: #02787C;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #02787C, $amount: 7);
+            }
+        }
+        &.color-chestnut-rose {
+            .service-inner .service-background{
+                background: #D55050;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #D55050, $amount: 7);
+            }
+        }
+        &.color-dingley {
+            .service-inner .service-background{
+                background: #707744;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #707744, $amount: 7);
+            }
+        }
+        &.color-grape {
+            .service-inner .service-background{
+                background: #4D1F58;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #4D1F58, $amount: 7);
+            }
+        }
+        &.color-tapestry {
+            .service-inner .service-background{
+                background: #BE657D;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #BE657D, $amount: 7);
+            }
+        }
+        &.color-elephant {
+            .service-inner .service-background{
+                background: #104646;
+            }
+            .service-icons .main-icon {
+                background: lighten($color: #104646, $amount: 7);
+            }
+        }
+    }
+    
+}
+
+
+
+/*================  Services  ================*/

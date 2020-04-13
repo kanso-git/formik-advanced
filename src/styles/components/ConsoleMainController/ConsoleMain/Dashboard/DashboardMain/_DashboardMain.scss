@@ -1,0 +1,62 @@
+.dashboard-tabs {
+    &.tabs-color-salmon {
+        .tab {
+            &.active {
+                border-color: #FF8179;
+                color: #FF8179;
+            }
+            &:hover {
+                color: #FF8179;
+            }
+        }
+    }
+    &.tabs-color-fuchsia-blue {
+        .tab {
+            &.active {
+                border-color: #7851CC;
+                color: #7851CC;
+            }
+            &:hover {
+                color: #7851CC;
+            }
+        }
+    }
+    &.tabs-color-matisse {
+        .tab {
+            &.active {
+                border-color: #195190;
+                color: #195190;
+            }
+            &:hover {
+                color: #195190;
+            }
+        }
+    }
+}
+
+.dashboard-table {
+    &.table-color-salmon {
+        thead {
+            background: rgba(255, 129, 121, .10);
+            tr {
+                color: #FF8179;
+            }
+        }
+    }
+    &.table-color-fuchsia-blue { 
+        thead {
+            background: rgba(120, 81, 204, .10);
+            tr {
+                color: #7851CC;
+            }
+        }
+    }
+    &.table-color-picton-blue {
+        thead {
+            background: rgba(50, 161, 242, .10);
+            tr {
+                color: #32A1F2;
+            }
+        }
+    }
+}

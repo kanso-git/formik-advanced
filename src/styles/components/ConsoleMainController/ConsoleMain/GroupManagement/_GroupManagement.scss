@@ -1,0 +1,57 @@
+.dashboard-content-wrapper {
+    &.group-management {
+        .dashboard-header {
+            .subheader {
+                .btn-create {
+                    background: #34A8A6;
+                    &:hover {
+                        background: darken($color: #34A8A6, $amount: 5);
+                    }
+                }
+                .view-control .view-item.active {
+                    background: #34A8A6;
+                }
+            }
+        }
+        .dashboard-content {
+            .dashboard-table thead tr {
+                background: #DDF8F7;
+                color: #34A8A6;
+            }
+            .cards-container {
+                .card {
+                    .card-head {
+                        .top-label {
+                            background: #DDF8F7;
+                            color: #34A8A6;
+                        }
+                    }
+    
+                    .card-content {
+                        h3 {
+                            font-size: rem(18px);
+                            min-height: 55px;
+                            max-width: 75%;
+                            margin: rem(25px auto 12px auto);
+
+                        }
+                        .info-label {
+                            background: #DDF8F7;
+                            color: #34A8A6;
+                            margin-bottom: rem(40px);
+                        }
+                    }
+                    &.selected {
+                        box-shadow: 0 0 0 1.5px #34A8A6;
+                    }
+                }
+            }
+        }
+        .circle-checkbox {
+            input:checked~.checkmark {
+                background-color: #34A8A6;
+                border-color: #34A8A6;
+            }
+        }
+    }
+}

@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: bold;
+    src: local('../fonts/din/DIN-Bold.woff'),
+        url('../fonts/din/DIN-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: normal;
+    src: local('../fonts/din/DIN-Regular.woff'),
+        url('../fonts/din/DIN-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DIN';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/din/DIN-Black.woff2') format('woff2'),
+        url('../fonts/din/DIN-Black.woff') format('woff');
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-size: cover;
+    font-family: 'DIN', sans-serif;
+    .main-background {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        &.color-big-stone {
+            background: #192039;
+        }
+        &.color-matisse {
+            background: #195190;
+        }
+        &.color-blue-lagoon {
+            background: #02787c;
+        }
+        &.color-chestnut-rose {
+            background: #d55050;
+        }
+        &.color-dingley {
+            background: #707744;
+        }
+        &.color-grape {
+            background: #4d1f58;
+        }
+        &.color-tapestry {
+            background: #be657d;
+        }
+        &.color-elephant {
+            background: #104646;
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+    font-family: 'DIN', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: all 0.3s ease-in-out; // transition for blurred effect
+    position: relative;
+    z-index: $z-wrapper;
+    .services {
+        flex-grow: 1;
+    }
+    .main-content {
+        flex-grow: 1;
+        position: relative;
+        padding-top: rem(60px);
+    }
+}
+
+.intro-text {
+    text-align: center;
+    color: #ffffff;
+    font-size: rem(37px);
+    font-weight: bold;
+    margin-bottom: rem(28px);
+}
+
+/*=============================================
+=            custom inputs            =
+=============================================*/
+
+/*----------  custom checkbox  ----------*/
+
+.custom-checkbox {
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        height: 35px;
+        width: 35px;
+        background: #fff;
+        border: 1px solid #707070;
+        border-radius: rem(4px);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 18px;
+        flex-shrink: 0;
+    }
+
+    input:checked ~ .checkmark {
+        background-color: #fff;
+    }
+
+    .checkmark i {
+        display: none;
+    }
+
+    input:checked ~ .checkmark i {
+        display: block;
+    }
+
+    .checkmark i {
+        color: #195190;
+    }
+}
+
+/*----------  custom radio input  ----------*/
+
+.custom-radio {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .checkmark {
+        height: 40px;
+        width: 40px;
+        border: 1px solid #959ba5;
+        border-radius: 50%;
+        background: #fff;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    input:checked ~ .checkmark {
+        background-color: #fff;
+    }
+
+    .checkmark:after {
+        content: '';
+        display: none;
+    }
+
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .checkmark:after {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #195190;
+    }
+}
+
+/*=====  End of custom inputs  ======*/

@@ -1,0 +1,233 @@
+.dashboard-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    z-index: 1;
+    .login-form {
+        max-width: 774px;
+        width: 456px;
+        margin: rem(0 auto 30px auto);
+        border-radius: 5px;
+        border: 18px solid rgba(25, 81, 144, 0.05);
+        @media (max-width: 800px) {
+            max-width: 100%;
+        }
+        .block-white {
+            background-color: #fff;
+            padding: rem(50px 55px 30px 55px);
+            min-height: 573px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+            @media (max-width: 800px) {
+                padding: rem(30px);
+            }
+        }
+        .aiec-icon {
+            width: 140px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #195190;
+            font-weight: 300;
+            margin-bottom: 25px;
+            strong {
+                font-weight: 600;
+            }
+        }
+        .language-form {
+            img {
+                width: 35px;
+                display: block;
+            }
+            display: inline-block;
+            margin-right: 10px;
+            opacity: 0.5;
+            display: inline-block;
+            &.current {
+                opacity: 1;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+        .forget-password {
+            color: #666d7b;
+            font-style: italic;
+            font-size: rem(12px);
+            text-decoration: underline;
+            border: 0;
+            background: none;
+        }
+        .required {
+            .form-control {
+                border-color: #ed3348;
+                color: #ed3348;
+            }
+            .error-message {
+                display: inline-block;
+                color: #ed3348;
+                font-size: rem(12px);
+                color: #e60f0f;
+                font-weight: normal;
+                margin-top: 5px;
+                @extend %opensans;
+            }
+        }
+        form {
+            min-height: 415px;
+            display: flex;
+            flex-direction: column;
+            .form-group {
+                position: relative;
+                height: 96px;
+                margin-bottom: rem(20px);
+
+                input {
+                    height: 96px;
+                    border-radius: rem(18px);
+                    display: block;
+                    background: #fff;
+                    width: 100%;
+                    border: 0;
+                    color: #707070;
+                    font-size: rem(25px);
+                    padding: rem(15px 80px 15px 110px);
+                    @extend %opensans;
+                    border: 2px solid transparent;
+
+                    &::placeholder {
+                        opacity: 1;
+                    }
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                .input-icon {
+                    position: absolute;
+                    left: 37px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &.error {
+                    input {
+                        border-color: #e60f0f;
+                        &::placeholder {
+                            color: #e60f0f;
+                        }
+                    }
+
+                    .input-icon {
+                        svg {
+                            path,
+                            circle {
+                                fill: #e60f0f;
+                            }
+                        }
+                    }
+                    .reset-input {
+                        position: absolute;
+                        right: 24px;
+                        top: 0;
+                        bottom: 0;
+                        width: 43px;
+                        height: 43px;
+                        margin: auto;
+                        border: 0;
+                        background: none;
+                    }
+                }
+            }
+
+            .forget-password {
+                display: block;
+                font-size: rem(25px);
+                color: #fff;
+                text-align: right;
+                text-decoration: underline;
+                margin-bottom: rem(50px);
+                font-weight: 600;
+                font-style: italic;
+                @extend %opensans;
+                margin-top: rem(22px);
+                box-shadow: none;
+                border: 0px;
+            }
+
+            .btn-submit {
+                margin-top: auto;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .btn-login {
+        background-color: #195190;
+        @extend %tr;
+        width: 100%;
+        color: #fff;
+        min-height: 50px;
+        border: 0;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: rem(5px 15px);
+        border-radius: 5px;
+        img {
+            padding-right: rem(5px);
+        }
+        &:hover {
+            background: darken($color: #195190, $amount: 10);
+        }
+    }
+    .control-languages {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        .lang {
+            max-width: 36px;
+            margin-right: rem(25px);
+            margin-bottom: rem(5px);
+            border-radius: 4px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            opacity: 0.5;
+            @extend %tr;
+
+            img {
+                display: block;
+            }
+            &:last-child {
+                margin-right: rem(0px);
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.active {
+                opacity: 1;
+                box-shadow: 0 2px 4px rgba(61, 111, 222, 0.3);
+                border-color: #3d6fde;
+            }
+        }
+    }
+}
+.footer.dark {
+    .operated-by p {
+        color: #666d7b;
+    }
+    .connected-to p {
+        color: #666d7b;
+    }
+}

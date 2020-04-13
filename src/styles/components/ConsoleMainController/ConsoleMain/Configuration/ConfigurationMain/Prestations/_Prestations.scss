@@ -1,0 +1,67 @@
+.configuration-prestations {
+
+	.prestation-actions {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding: rem(0 23px);
+
+		.btn-select-action {
+			border: 0;
+			background: none;
+			margin-right: rem(30px);
+			color: #373c46;
+			font-size: rem(14px);
+			@extend %opensans;
+
+			img {
+				margin-right: rem(5px);
+				vertical-align: sub;
+			}
+		}
+
+		.select-all {
+			font-weight: 700;
+		}
+
+		.delete-selection {
+			font-weight: 600;
+		}
+	}
+
+	.dashboard-content .dashboard-table thead {
+		background: transparent;
+		border-bottom: 2px solid #7689ff;
+		tr {
+			color: #7689ff;
+			background: transparent;
+		}
+	}
+}
+
+.dashboard-content .dashboard-table tbody {
+	td {
+		.prestation-name {
+			display: flex;
+			align-items: center;
+			.icon {
+				margin-right: rem(10px);
+				width: 27px;
+				height: 27px;
+				background: #E6EAFF;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2px;
+				img {
+					display: block;
+					margin: auto;
+				}
+				i {
+					color: #666D7B;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+.reports {
+	.page-head-container {
+        .title-description {
+            color: #666D7B;
+            font-size: rem(14px);
+            @extend %din;
+            margin-top: 5px;
+        }
+        .btn-edit-title {
+            border: 0;
+            background: none;
+            margin: 0 20px;
+        }
+		.time-container {
+			display: flex;
+			flex-wrap: wrap;
+			margin: rem(10px 0 10px auto);
+
+			.time-select {
+				min-width: 226px;
+				margin-left: rem(25px);
+			}
+
+			&.flex-column {
+				flex-direction: column;
+				align-items: flex-end;
+			}
+			&.flex-row-reverse {
+				flex-direction: row-reverse;
+				align-items: center;
+			}
+
+			.date-range {
+				color: #666d7b;
+				font-size: 14px;
+				@extend %din;
+				margin: rem(5px 0);
+			}
+		}
+
+		.btn-remove {
+			color: #ed3348;
+			font-size: rem(13px);
+			font-weight: bold;
+			@extend %din;
+			background: transparent;
+			border-radius: 2px;
+			border: 1px solid #ed3348;
+			min-width: 112px;
+			min-height: 35px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: rem(5px 0 5px auto);
+			@extend %tr;
+
+			img {
+				margin-right: rem(5px);
+			}
+
+			svg {
+				margin-right: rem(5px);
+
+				path {
+					@extend %tr;
+					fill: #ed3348;
+				}
+			}
+
+			&:hover {
+				background: #ed3348;
+				color: #fff;
+
+				svg {
+					path {
+						fill: #fff;
+					}
+				}
+			}
+		}
+	}
+}

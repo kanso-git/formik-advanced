@@ -1,0 +1,183 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	padding: rem(60px 45px 0 45px);
+	@include sm {
+		padding: rem(60px 20px 0 20px);
+	}
+
+	.intro-text {
+		margin-bottom: 0;
+		@media (max-width: 1024px) {
+			display: none;
+		}
+	}
+
+	.app-name {
+		color: #153f6e;
+		font-size: rem(47px);
+		@extend %din;
+		font-weight: 900;
+		line-height: 1.35;
+		margin-bottom: rem(10px);
+		@media (max-width: 1366px) {
+			font-size: rem(40px);
+		}
+	}
+
+	.login-form {
+		width: 774px;
+		max-width: 100%;
+		margin: rem(25px auto 0 auto);
+
+		form {
+			min-height: 415px;
+			display: flex;
+			flex-direction: column;
+			.form-group {
+				position: relative;
+				height: 96px;
+				margin-bottom: rem(20px);
+				@media (max-width: 1366px) {
+					height: 80px;
+				}
+
+				input {
+					height: 96px;
+					border-radius: rem(18px);
+					display: block;
+					background: #fff;
+					width: 100%;
+					border: 0;
+					color: #707070;
+					font-size: rem(25px);
+					padding: rem(15px 80px 15px 110px);
+					@extend %opensans;
+					border: 2px solid transparent;
+
+					&::placeholder {
+						opacity: 1;
+					}
+					@media (max-width: 1366px) {
+						height: 80px;
+						font-size: rem(22px);
+					}
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				// ie fix
+				&:first-child {
+					margin-bottom: rem(20px);
+				}
+
+				.input-icon {
+					position: absolute;
+					left: 37px;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+					display: flex;
+					align-items: center;
+				}
+
+				&.error {
+					input {
+						border-color: #e60f0f;
+						&::placeholder {
+							color: #e60f0f;
+						}
+					}
+
+					.input-icon {
+						svg {
+							path,
+							circle {
+								fill: #e60f0f;
+							}
+						}
+					}
+					.reset-input {
+						position: absolute;
+						right: 24px;
+						top: 0;
+						bottom: 0;
+						width: 43px;
+						height: 43px;
+						margin: auto;
+						border: 0;
+						background: none;
+					}
+				}
+			}
+
+			.forget-password {
+				display: block;
+				font-size: rem(25px);
+				color: #fff;
+				text-align: right;
+				text-decoration: underline;
+				margin-bottom: rem(50px);
+				font-weight: 600;
+				font-style: italic;
+				@extend %opensans;
+				margin-top: rem(22px);
+			}
+
+			.error-message {
+				font-size: rem(20px);
+				color: #e60f0f;
+				font-weight: 600;
+				font-style: italic;
+				margin-top: rem(10px);
+				padding-bottom: rem(10px);
+				@extend %opensans;
+			}
+
+			.btn-submit {
+				margin-top: auto;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.btn-main {
+	border: rem(6px solid #fff);
+	background: rgba(0, 0, 0, 0.2);
+	margin: auto;
+	text-decoration: none;
+	border-radius: 20px;
+	min-height: 96px;
+	width: 774px;
+	max-width: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: rem(30px);
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	@extend %tr;
+	img {
+		margin-right: rem(18px);
+	}
+	&:hover {
+		background: rgba(2, 2, 2, 0.3);
+    }
+    
+    @media (max-width: 1366px) {
+        min-height: 80px;
+        border: rem(4px solid #fff);
+        font-size: rem(26px);
+        img {
+            max-height: 40px;
+        }
+    }
+}
