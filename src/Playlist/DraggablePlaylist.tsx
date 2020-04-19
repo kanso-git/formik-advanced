@@ -2,15 +2,40 @@ import React from 'react'
 import { SortableContainer } from 'react-sortable-hoc'
 import { generate } from 'shortid'
 import Slide from './Slide/Slide'
-
-const DraggablePlaylist = SortableContainer((props: any) => {
-    const { slides, push } = props
+import DraggableCard from './Slide/DraggableCard'
+import { ISlide, IPlaylist } from './IPlaylist'
+import { FormikProps } from 'formik'
+interface DraggablePlaylistProps {
+    helperClass: string
+    slides: ISlide[]
+    form: FormikProps<IPlaylist>
+    push: (obj: any) => void
+    onSortEnd: (obj: any) => void
+    axis: string
+    distance: number
+}
+const DraggablePlaylist = SortableContainer((props: DraggablePlaylistProps) => {
+    const { slides, push, form } = props
     return (
         <div className="cards-container user-cards">
-            {slides.map((sl: any, index: number) => {
+            {slides.map((slide: ISlide, index: number) => {
                 //form.setFieldValue()
+                /*
                 const name = `slides[${index}].name`
-                return <Slide name={name} key={sl.id} index={index} />
+                const volume = `slides[${index}].volume`
+                const duration = `slides[${index}].duration`
+                const startDate = `slides[${index}].startDate`
+                const endDate = `slides[${index}].endDate`
+                */
+                // <Slide name={name} key={sl.id} index={index} />
+                return (
+                    <DraggableCard
+                        slideIndex={index}
+                        form={form}
+                        key={slide.id}
+                        index={index}
+                    />
+                )
             })}
 
             <div className="card-container">
@@ -27,6 +52,14 @@ const DraggablePlaylist = SortableContainer((props: any) => {
                             push({
                                 id: generate(),
                                 name: '',
+                                duration: 5,
+                                volume: 30,
+                                startDate: new Date(),
+                                endDate: undefined,
+                                media: null,
+                                mediaUpload: null,
+                                previewURL: null,
+                                mediaDeleted: false,
                             })
                         }}
                     >

@@ -153,7 +153,18 @@ import spacedBackground1 from './styles/images/main/spaced-background-1.png'
 */
 import errorPageInnerBg from './styles/images/main/error-page-inner-bg-1.png'
 
+import contemplativeReptile from './styles/images/contemplative-reptile.jpg'
+
+import videoPlaceholder from './styles/images/icons/video-placeholder.jpg'
+import videoPlaceholderBlue from './styles/images/icons/video-placeholder-blue.png'
+import videoPlaceholderGrey from './styles/images/icons/video-placeholder-grey.jpg'
+import videoPlaceholderViolet from './styles/images/icons/video-placeholder-viloet.png'
+
 export {
+    videoPlaceholder,
+    videoPlaceholderBlue,
+    videoPlaceholderGrey,
+    videoPlaceholderViolet,
     close,
     consulting,
     consultingGreen,
@@ -272,4 +283,5 @@ export {
     reception4,
     loginIcon,
     aiecLogo,
+    contemplativeReptile,
 }

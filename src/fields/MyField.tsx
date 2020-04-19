@@ -17,7 +17,7 @@ const MyField: React.FC<MaterialFieldProps> = ({ label, ...props }) => {
             <input
                 type="text"
                 name={field.name}
-                value={value ? value : ''}
+                value={value ? value : 0}
                 className={`form-control`}
                 onChange={field.onChange}
                 onBlur={field.onBlur}

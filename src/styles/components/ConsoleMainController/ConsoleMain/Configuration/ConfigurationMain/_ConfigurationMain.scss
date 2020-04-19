@@ -1,5 +1,6 @@
 .dashboard-content-wrapper {
-    &.configuration {
+    &.configuration,
+    .dashboard-content {
         .dashboard-header {
             .subheader {
                 .btn-create {
@@ -65,8 +66,8 @@
 
         .block-upload {
             box-shadow: -3px 3px 15px rgba(105, 105, 105, 0.12);
-            padding: rem(20px 24px);
-            margin-bottom: 20px;
+            padding: rem(2px 2px);
+            margin-bottom: 0px;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -74,7 +75,7 @@
 
         .media-upload {
             border-radius: 5px;
-            min-height: 240px;
+            min-height: 194px;
             background: #fff;
             flex-grow: 1;
             flex-direction: column;
@@ -93,7 +94,7 @@
 
             .upload-area {
                 min-height: 140px;
-                border: 1px dashed #b8c6dc;
+                border: 2px dashed #b8c6dc;
                 border-radius: 2px;
                 display: flex;
                 flex-direction: column;
@@ -184,7 +185,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding: 10px;
+                    //padding: 10px;
                     //background: #fff url('images/main/media-background.svg') repeat;
                     background: #e8edfc;
                     background-position: center;
