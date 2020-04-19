@@ -22,10 +22,8 @@ export interface ISlide {
     duration: number
     volume: number
     media: string
-    mediaUpload?: any
-    mediaUploadFileName?: string
-    previewURL?: string
     mediaDeleted?: boolean
+    mediaUploadName?: string
     createdAt?: any
     createdUser?: IUser
     updatedAt?: any

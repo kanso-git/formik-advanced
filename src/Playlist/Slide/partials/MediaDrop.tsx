@@ -5,17 +5,15 @@ import { unisexAvatar, closeWhite, cloudComputing } from '../../../images'
 import { AppLogger } from '../../../AppLogger'
 import { IPlaylist } from '../../IPlaylist'
 import { FormikProps, getIn } from 'formik'
+import { MediaType } from '../../../generated/globalTypes'
+import {
+    getMediaUrl,
+    isImage,
+    deleteMedia,
+    isViedo,
+    uploadMedia,
+} from '../../../common/utils'
 //import MyPlayer from './ReactPlayer'
-
-export enum MediaType {
-    DISPLAY_COVER_IMAGE = 'DISPLAY_COVER_IMAGE',
-    PLAYLIST_COVER_IMAGE = 'PLAYLIST_COVER_IMAGE',
-    SLIDE_AUDIO = 'SLIDE_AUDIO',
-    SLIDE_EMBEDDED_CONTENT = 'SLIDE_EMBEDDED_CONTENT',
-    SLIDE_IMAGE = 'SLIDE_IMAGE',
-    SLIDE_VIDEO = 'SLIDE_VIDEO',
-    USER_IMAGE = 'USER_IMAGE',
-}
 
 const logger = AppLogger.getInstance()
 
@@ -26,32 +24,14 @@ interface MediaDropProps {
     mediaDelete: (e: boolean) => void
 }
 
-const UPLOAD_ENDPOINT = process.env.REACT_APP_UPLOAD_ENDPOINT as string
-//const BASE_URL =
-//  process.env.REACT_APP_HTTPASSETS_URI || 'http://localhost:4800/assets'
-const BASE_URL = 'http://localhost:4800/assets'
-const SLIDES = 'slides'
-const MINISLIDES = 'mini_slides'
-const IMAGES = 'images'
-const VIDEOS = 'videos'
-const USERS = 'users'
-
-export const isImage = (fileName: string): boolean => {
-    return !!fileName.match(/.(jpg|jpeg|png|gif|svg)$/i)
-}
-export const isViedo = (fileName: string): boolean => {
-    return !!fileName.match(/.(mov|avi|wmv|flv|3gp|mp4|mpg)$/i)
-}
 interface MediaDropProps {
     value: string
     form: FormikProps<IPlaylist>
     name: string //media
-    mediaUpload: string
     mediaDeleted: string
-    previewURL: string
+    mediaUploadName: string
     volume: string
     slideIndex: number
-    mediaUploadFileName: string
 }
 
 const MediaDrop = (props: MediaDropProps) => {
@@ -60,90 +40,74 @@ const MediaDrop = (props: MediaDropProps) => {
         form,
         name,
         mediaDeleted,
-        mediaUpload,
+        mediaUploadName,
         volume,
-        previewURL,
         slideIndex,
-        mediaUploadFileName,
     } = props
+
     const player = useRef(null)
     const error = getIn(form.errors, name)
-
     const touched = getIn(form.touched, name)
-
-    const mediaUploadValue = getIn(form.values, mediaUpload)
     const mediaDeletedFlag = getIn(form.values, mediaDeleted)
-    const mediaPreviewURL = getIn(form.values, previewURL)
+    const mediaUploadNameValue = getIn(form.values, mediaUploadName)
     const volumeValue = getIn(form.values, volume)
-    const mediaUploadFileNameValue = getIn(form.values, mediaUploadFileName)
-
-    console.log(`MediaDrop  media:${media}`)
-
-    const buildMediaURL = (
-        mediaName: string,
-        mediaType: MediaType,
-        original?: boolean
-    ): string => {
-        switch (mediaType) {
-            case MediaType.SLIDE_IMAGE:
-                return `${BASE_URL}/${IMAGES}/${MINISLIDES}/${mediaName}`
-            case MediaType.SLIDE_VIDEO:
-                return `${BASE_URL}/${VIDEOS}/${mediaName}`
-
-            default:
-                return ''
-        }
-    }
-    const getMediaUrl = (value: string | undefined): string | undefined => {
-        if (value) {
-            if (isImage(value)) {
-                return buildMediaURL(value, MediaType.SLIDE_IMAGE)
-            } else {
-                return buildMediaURL(value, MediaType.SLIDE_VIDEO)
-            }
-        } else {
-            return ''
-        }
-    }
-
-    // media can be image or video
 
     /**
      * check if we have media content
      */
     const hasMedia = (): boolean => {
+        // wehen initial media is deleted check if we have a preview
         if (mediaDeletedFlag) {
-            return mediaPreviewURL ? true : false
+            return mediaUploadNameValue ? true : false
         } else {
             // media not deleted : 2 cases new slide or saved slide
-            return media || mediaPreviewURL ? true : false
+            return media || mediaUploadNameValue ? true : false
         }
     }
 
+    /**
+     * get the current media url
+     *
+     */
     const getCurrentMedia = (): string | undefined => {
         let currentMediaUrl: any = ''
         if (mediaDeletedFlag) {
-            currentMediaUrl = mediaPreviewURL
+            currentMediaUrl = mediaUploadNameValue
         } else {
-            currentMediaUrl = mediaPreviewURL
-                ? mediaPreviewURL
+            currentMediaUrl = mediaUploadNameValue
+                ? getMediaUrl(mediaUploadNameValue)
                 : getMediaUrl(media)
         }
         return currentMediaUrl
     }
 
-    const handleDeleteMedia = (): void => {
+    /**
+     * get the media type
+     */
+    const getMediaType = (mediaName: string): MediaType | undefined => {
+        let mediaType
+        if (isImage(mediaName)) {
+            mediaType = MediaType.SLIDE_IMAGE
+        } else if (isViedo(mediaName)) {
+            mediaType = MediaType.SLIDE_VIDEO
+        }
+        return mediaType
+    }
+    const handleDeleteMedia = async (): Promise<any> => {
         //when we click on the x button set the filed as touched
         form.setFieldTouched(name)
         // mediaDeletedFalg is set only when deleting the saved media
         if (media && !mediaDeletedFlag) {
             form.setFieldValue(mediaDeleted, true)
-        } else if (mediaPreviewURL) {
+        } else if (mediaUploadNameValue) {
             const mySlide = form.values.slides.find((s, i) => i === slideIndex)
-            if (mySlide) {
-                mySlide.mediaUpload = undefined
-                mySlide.previewURL = undefined
-                mySlide.mediaUploadFileName = undefined
+            const mediaType = getMediaType(mediaUploadNameValue)
+            if (mySlide && mediaType) {
+                debugger
+                await deleteMedia(mediaUploadNameValue, mediaType)
+
+                mySlide.mediaUploadName = undefined
+                mySlide.name = ''
                 const currentSlides = form.values.slides
                 currentSlides.splice(slideIndex, 1, mySlide)
 
@@ -154,9 +118,12 @@ const MediaDrop = (props: MediaDropProps) => {
             }
         }
     }
+    /**
+     * TODO test the below method
+     */
     const hasMediaError = (): boolean => {
         if (mediaDeletedFlag) {
-            return mediaPreviewURL ? false : true
+            return mediaUploadNameValue ? false : true
         } else {
             return !!media && touched ? true : false
         }
@@ -178,8 +145,8 @@ const MediaDrop = (props: MediaDropProps) => {
 
     const renderMediaContent = () => {
         if (getCurrentMedia()) {
-            const mediaContent = mediaUploadValue
-                ? mediaUploadFileNameValue
+            const mediaContent = mediaUploadNameValue
+                ? mediaUploadNameValue
                 : media
             console.log(
                 `>>>>>>>>>>>>>>>> slide index ${slideIndex} mediaContent:${mediaContent} `
@@ -283,16 +250,32 @@ const MediaDrop = (props: MediaDropProps) => {
                 const preview = URL.createObjectURL(file)
                 //setmyMediaUrl(preview)
                 const myResult = myFileItemReader.result
+                const mediaType = getMediaType(file.name)
                 logger.log('preview', preview)
                 logger.log('myResult', myResult)
+
                 if (myResult) {
                     const mySlide = form.values.slides.find(
                         (s, i) => i === slideIndex
                     )
-                    if (mySlide) {
-                        mySlide.mediaUpload = myResult
-                        mySlide.previewURL = preview
-                        mySlide.mediaUploadFileName = file.name
+
+                    if (mySlide && mediaType) {
+                        /**
+                           interface IUpload {
+                                data: string | ArrayBuffer
+                                name: string
+                                type: string
+                            }
+                                                   
+                        */
+
+                        const fileName = await uploadMedia({
+                            data: myResult,
+                            name: file.name,
+                            type: mediaType,
+                        })
+                        mySlide.mediaUploadName = fileName
+                        mySlide.name = file.name
                         const currentSlides = form.values.slides
                         currentSlides.splice(slideIndex, 1, mySlide)
 

@@ -18,9 +18,10 @@ import IconButton from '@material-ui/core/IconButton'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MenuSlider from './partials/MenuSlider'
 import DatePicker2 from './partials/DatePicker2'
-import MediaDrop, { isImage } from './partials/MediaDrop'
+import MediaDrop from './partials/MediaDrop'
 import { getDefaultFromValuesTest, ISlide, IPlaylist } from '../IPlaylist'
 import TimeSlider from './partials/TimeSlider'
+import { isImage } from '../../common/utils'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -69,19 +70,19 @@ export default function MediaCard(props: MediaCardProps) {
     const { slideIndex: index, form } = props
 
     const mediaValue = getIn(form.values, `slides[${index}].media`)
-    const mediaUploadFileNameValue = getIn(
+    const mediaUploadNameValue = getIn(
         form.values,
-        `slides[${index}].mediaUploadFileName`
+        `slides[${index}].mediaUploadName`
     )
     const mediaDeletedFlag = getIn(form.values, `slides[${index}].mediaDeleted`)
 
     const getMediaFileName = (): string | undefined => {
         let currentMediaUrl: any = ''
         if (mediaDeletedFlag) {
-            currentMediaUrl = mediaUploadFileNameValue
+            currentMediaUrl = mediaUploadNameValue
         } else {
-            currentMediaUrl = mediaUploadFileNameValue
-                ? mediaUploadFileNameValue
+            currentMediaUrl = mediaUploadNameValue
+                ? mediaUploadNameValue
                 : mediaValue
         }
         return currentMediaUrl
@@ -101,10 +102,8 @@ export default function MediaCard(props: MediaCardProps) {
             */}
             <Field
                 name={`slides[${index}].media`}
-                mediaUploadFileName={`slides[${index}].mediaUploadFileName`}
-                mediaUpload={`slides[${index}].mediaUpload`}
                 mediaDeleted={`slides[${index}].mediaDeleted`}
-                previewURL={`slides[${index}].previewURL`}
+                mediaUploadName={`slides[${index}].mediaUploadName`}
                 volume={`slides[${index}].volume`}
                 form={props.form}
                 slideIndex={index}
