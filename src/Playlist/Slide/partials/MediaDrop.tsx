@@ -1,7 +1,12 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react'
 
 import Dropzone from 'react-dropzone'
-import { unisexAvatar, closeWhite, cloudComputing } from '../../../images'
+import {
+    unisexAvatar,
+    closeWhite,
+    cloudComputing,
+    penWhite,
+} from '../../../images'
 import { AppLogger } from '../../../AppLogger'
 import { IPlaylist } from '../../IPlaylist'
 import { FormikProps, getIn } from 'formik'
@@ -103,7 +108,6 @@ const MediaDrop = (props: MediaDropProps) => {
             const mySlide = form.values.slides.find((s, i) => i === slideIndex)
             const mediaType = getMediaType(mediaUploadNameValue)
             if (mySlide && mediaType) {
-                debugger
                 await deleteMedia(mediaUploadNameValue, mediaType)
 
                 mySlide.mediaUploadName = undefined
@@ -125,7 +129,7 @@ const MediaDrop = (props: MediaDropProps) => {
         if (mediaDeletedFlag) {
             return mediaUploadNameValue ? false : true
         } else {
-            return !!media && touched ? true : false
+            return !media && touched ? true : false
         }
     }
 
@@ -181,7 +185,7 @@ const MediaDrop = (props: MediaDropProps) => {
                         className="remove-uploads"
                         onClick={handleDeleteMedia}
                     >
-                        <img src={closeWhite} alt="close" />
+                        <img src={penWhite} alt="close" />
                     </button>
                 </div>
             </div>

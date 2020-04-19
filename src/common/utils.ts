@@ -137,9 +137,7 @@ export const deleteMedia = async (
     const axiosApiLayer = AxiosApiLayer.getInstance()
     // avoid deleting something not exist
     logger.log(`deleteImage imageName:${mediaName} type:${type} `)
-    if (
-        mediaName.match(/.(jpg|jpeg|png|gif|svg|mov|avi|wmv|flv|3gp|mp4|mpg)$/i)
-    ) {
+    if (mediaName.match(/.(jpg|jpeg|png|gif|svg|mov|wmv|flv|3gp|mp4|mpg)$/i)) {
         return await axiosApiLayer.delete(`${UPLOAD_ENDPOINT}`, {
             data: { fileName: mediaName, type },
         })

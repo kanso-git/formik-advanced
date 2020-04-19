@@ -12,7 +12,7 @@ export class AxiosApiLayer {
             AxiosApiLayer.access_token = sessionStorage.getItem('token')
             axios.defaults.headers.common[
                 'Authorization'
-            ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjazhycXRnZXE5Zms2MDcwN2FtOHdrZXYzIiwiaWF0IjoxNTg3MzAxNDE1LCJleHAiOjE1ODczMDUwMTV9.3_U-NXeMorPqetShgxt_b0ENiJjhGPyUgBpzGlr6QYs`
+            ] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjazhycXRnZXE5Zms2MDcwN2FtOHdrZXYzIiwiaWF0IjoxNTg3MzA1NjgxLCJleHAiOjE1ODczMDkyODF9.1fvGveR7AAcIdiCwOYVa537tH8JBFOrGLkt8pS7_d94`
 
             const appcode = process.env.REACT_APP_APPCODE as string
             axios.defaults.headers.common['appcode'] = appcode

@@ -92,7 +92,7 @@ export default function MediaCard(props: MediaCardProps) {
     console.log(props)
     return (
         <Card className={classes.root} onClick={(e) => e.preventDefault()}>
-            {/**  <MenuSlider /> */}
+            <MenuSlider />
             {/*
             <CardMedia
                 className={classes.media}
