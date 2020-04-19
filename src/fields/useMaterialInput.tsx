@@ -11,6 +11,7 @@ const MaterialField: React.FC<MaterialFieldProps> = ({
     label,
     placeHolder,
     className,
+    disabled = false,
     type = 'text',
     ...props
 }) => {
@@ -30,6 +31,7 @@ const MaterialField: React.FC<MaterialFieldProps> = ({
             name={field.name}
             label={label}
             margin="normal"
+            disabled={disabled}
             helperText={meta.error && meta.touched && meta.error}
         />
     )

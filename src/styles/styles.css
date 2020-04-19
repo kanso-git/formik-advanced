@@ -654,12 +654,12 @@ img {
   object-fit: cover; }
 
 .sortable-slide-cards .media-upload .upload-area .remove-uploads {
-  background: #373c46;
+  background: #3d6fde;
   position: absolute;
   bottom: -12px;
   right: -12px;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 0;
   display: flex;
@@ -11824,6 +11824,8 @@ textarea.form-control {
 
 .dashboard-content-wrapper.configuration .media-upload .upload-area .uploaded-img img,
 .dashboard-content-wrapper .dashboard-content .media-upload .upload-area .uploaded-img img {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   display: block;
   max-width: 100%;
   max-height: 100%;
@@ -11868,12 +11870,12 @@ textarea.form-control {
 
 .dashboard-content-wrapper.configuration .media-upload .upload-area .remove-uploads,
 .dashboard-content-wrapper .dashboard-content .media-upload .upload-area .remove-uploads {
-  background: #373c46;
+  background: #3d6fde;
   position: absolute;
-  top: -12px;
+  bottom: -12px;
   right: -12px;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 0;
   display: flex;

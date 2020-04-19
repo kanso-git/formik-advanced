@@ -2,7 +2,18 @@ import React from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import Avatar from '@material-ui/core/Avatar'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import AddIcon from '@material-ui/icons/Add'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemText from '@material-ui/core/ListItemText'
+import CheckIcon from '@material-ui/icons/Check'
+import CloseIcon from '@material-ui/icons/Close'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import blue from '@material-ui/core/colors/blue'
+import red from '@material-ui/core/colors/red'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -65,15 +76,34 @@ export default function MenuSlider() {
                     },
                 }}
             >
-                {options.map((option) => (
-                    <MenuItem
-                        key={option}
-                        selected={option === 'Pyxis'}
-                        onClick={handleClose}
-                    >
-                        {option}
-                    </MenuItem>
-                ))}
+                <MenuItem onClick={handleClose}>
+                    <ListItemAvatar>
+                        <Avatar
+                            style={{
+                                backgroundColor: red[100],
+                                color: red[600],
+                            }}
+                        >
+                            <DeleteForeverIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+
+                    <ListItemText>Delete</ListItemText>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <ListItemAvatar>
+                        <Avatar
+                            style={{
+                                backgroundColor: blue[100],
+                                color: blue[600],
+                            }}
+                        >
+                            <CloseIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+
+                    <ListItemText>Close</ListItemText>
+                </MenuItem>
             </Menu>
         </div>
     )

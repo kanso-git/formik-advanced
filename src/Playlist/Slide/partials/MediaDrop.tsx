@@ -1,12 +1,7 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react'
 
 import Dropzone from 'react-dropzone'
-import {
-    unisexAvatar,
-    closeWhite,
-    cloudComputing,
-    penWhite,
-} from '../../../images'
+import { cloudComputing, penWhite } from '../../../images'
 import { AppLogger } from '../../../AppLogger'
 import { IPlaylist } from '../../IPlaylist'
 import { FormikProps, getIn } from 'formik'
@@ -18,7 +13,6 @@ import {
     isViedo,
     uploadMedia,
 } from '../../../common/utils'
-//import MyPlayer from './ReactPlayer'
 
 const logger = AppLogger.getInstance()
 
@@ -35,7 +29,6 @@ interface MediaDropProps {
     name: string //media
     mediaDeleted: string
     mediaUploadName: string
-    volume: string
     slideIndex: number
 }
 
@@ -46,16 +39,12 @@ const MediaDrop = (props: MediaDropProps) => {
         name,
         mediaDeleted,
         mediaUploadName,
-        volume,
         slideIndex,
     } = props
 
-    const player = useRef(null)
-    const error = getIn(form.errors, name)
     const touched = getIn(form.touched, name)
     const mediaDeletedFlag = getIn(form.values, mediaDeleted)
     const mediaUploadNameValue = getIn(form.values, mediaUploadName)
-    const volumeValue = getIn(form.values, volume)
 
     /**
      * check if we have media content
@@ -137,8 +126,11 @@ const MediaDrop = (props: MediaDropProps) => {
         return (
             <video
                 id={`myVideo_${slideIndex}`}
-                ref={player}
-                style={{ width: '345px' }}
+                style={{
+                    width: '345px',
+                    borderTopLeftRadius: 8,
+                    borderTopRightRadius: 8,
+                }}
                 controls
             >
                 <source src={src} />
@@ -152,34 +144,22 @@ const MediaDrop = (props: MediaDropProps) => {
             const mediaContent = mediaUploadNameValue
                 ? mediaUploadNameValue
                 : media
-            console.log(
-                `>>>>>>>>>>>>>>>> slide index ${slideIndex} mediaContent:${mediaContent} `
-            )
+
             if (isImage(mediaContent)) {
-                console.log(
-                    `>>>>>>>>>>>>>>>> slide index ${slideIndex} mediaContent is image `
-                )
                 return <img src={getCurrentMedia()} alt={''} />
             } else if (isViedo(mediaContent)) {
-                console.log(
-                    `>>>>>>>>>>>>>>>> slide index ${slideIndex} mediaContent is video `
-                )
                 const currentMedia = getCurrentMedia()
                 return currentMedia && renderHtml5Video(currentMedia)
-                /*
-                return (
-                    <MyPlayer
-                        src={getCurrentMedia()}
-                        volume={volumeValue ? volumeValue / 100 : 0}
-                    />
-                )*/
             }
         }
     }
     const renderMedia = (): JSX.Element => {
         return (
             <div className="media-upload block-upload">
-                <div className="upload-area has-uploads ">
+                <div
+                    className="upload-area has-uploads "
+                    style={{ border: 'none' }}
+                >
                     <div className="uploaded-img">{renderMediaContent()}</div>
                     <button
                         className="remove-uploads"
@@ -264,15 +244,6 @@ const MediaDrop = (props: MediaDropProps) => {
                     )
 
                     if (mySlide && mediaType) {
-                        /**
-                           interface IUpload {
-                                data: string | ArrayBuffer
-                                name: string
-                                type: string
-                            }
-                                                   
-                        */
-
                         const fileName = await uploadMedia({
                             data: myResult,
                             name: file.name,
@@ -299,13 +270,6 @@ const MediaDrop = (props: MediaDropProps) => {
         }
     }
 
-    useEffect(() => {
-        const id = `myVideo_${slideIndex}`
-        const ref = document.getElementById(id) as any
-        if (ref) {
-            ref.volume = volumeValue ? volumeValue / 100 : 0
-        }
-    }, [volumeValue])
     // closeWhite penWhite
     return <Fragment>{hasMedia() ? renderMedia() : renderDropZone()}</Fragment>
 }

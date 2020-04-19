@@ -104,7 +104,6 @@ export default function MediaCard(props: MediaCardProps) {
                 name={`slides[${index}].media`}
                 mediaDeleted={`slides[${index}].mediaDeleted`}
                 mediaUploadName={`slides[${index}].mediaUploadName`}
-                volume={`slides[${index}].volume`}
                 form={props.form}
                 slideIndex={index}
                 as={MediaDrop}
@@ -114,6 +113,7 @@ export default function MediaCard(props: MediaCardProps) {
                     <Field
                         label="Slide name"
                         name={`slides[${index}].name`}
+                        disabled={true}
                         as={MaterialField}
                         className={classes.input}
                     ></Field>
@@ -154,8 +154,10 @@ export default function MediaCard(props: MediaCardProps) {
                             ></Field>
                         ) : (
                             <Field
+                                slideIndex={index}
                                 label="Sound volume"
                                 name={`slides[${index}].volume`}
+                                duration={`slides[${index}].duration`}
                                 form={props.form}
                                 as={VolumeSlider}
                             ></Field>
