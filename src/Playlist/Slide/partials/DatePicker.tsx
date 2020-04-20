@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
     picker: {
         margin: '0 5px',
-        width: 120,
+        width: 'calc( 100% - 30px)',
         border: 'none',
         borderBottom: '1px solid',
         textAlign: 'center',

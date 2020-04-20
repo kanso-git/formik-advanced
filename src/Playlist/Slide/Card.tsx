@@ -21,21 +21,23 @@ import DatePicker2 from './partials/DatePicker2'
 import SlideMediaDrop from './partials/SlideMediaDrop'
 import { getDefaultFromValuesTest, ISlide, IPlaylist } from '../IPlaylist'
 import TimeSlider from './partials/TimeSlider'
-import { isImage } from '../../common/utils'
+import { isImage, CARD_WIDTH, MEDIA_MAX_HEIGHT } from '../../common/utils'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: '100%',
-            maxWidth: '345px',
+            maxWidth: `${CARD_WIDTH}px`,
             margin: '1rem',
             borderRadius: '10px',
             boxShadow: '0 0 10px rgba(82, 82, 82, 0.12)',
             position: 'relative',
             overflow: 'visible',
+            //transform: 'scale(.75)',
+            //margin: '-3rem -2rem',
         },
         media: {
-            height: 194,
+            maxHeight: `${MEDIA_MAX_HEIGHT}px`,
             borderTopRightRadius: '8px',
             borderTopLeftRadius: '8px',
         },

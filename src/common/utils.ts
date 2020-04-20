@@ -11,6 +11,9 @@ const BASE_URL =
 const IMAGE_EXTENSIONS = process.env.REACT_APP_IMAGE_EXTENSIONS as string
 const VIDEO_EXTENSIONS = process.env.REACT_APP_VIDEO_EXTENSIONS as string
 
+export const CARD_WIDTH = 345 //270 //345
+export const MEDIA_MAX_HEIGHT = 194 //152 //194
+
 const IMAGES = 'images'
 const USERS = 'users'
 

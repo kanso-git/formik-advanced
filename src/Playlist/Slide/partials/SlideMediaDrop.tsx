@@ -11,6 +11,8 @@ import {
     deleteMedia,
     isViedo,
     uploadMedia,
+    CARD_WIDTH,
+    MEDIA_MAX_HEIGHT,
 } from '../../../common/utils'
 
 const logger = AppLogger.getInstance()
@@ -98,9 +100,10 @@ const SlideMediaDrop = (props: MediaDropProps) => {
             <video
                 id={`myVideo_${slideIndex}`}
                 style={{
-                    width: '345px',
+                    width: `${CARD_WIDTH}px`,
                     borderTopLeftRadius: 8,
                     borderTopRightRadius: 8,
+                    backgroundSize: 'cover',
                 }}
                 controls
             >
@@ -114,7 +117,15 @@ const SlideMediaDrop = (props: MediaDropProps) => {
         const mediaUrl = getMediaUrl(mediaValue) //the url to mediaValue
         if (mediaUrl) {
             if (isImage(mediaValue)) {
-                return <img src={mediaUrl} alt={''} />
+                return (
+                    <img
+                        src={mediaUrl}
+                        style={{
+                            width: `${CARD_WIDTH}px`,
+                        }}
+                        alt={mediaValue}
+                    />
+                )
             } else if (isViedo(mediaValue)) {
                 return renderHtml5Video(mediaUrl)
             }
