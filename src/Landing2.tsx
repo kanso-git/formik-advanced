@@ -3,11 +3,10 @@ import Layout from './Layout'
 import Playlist from './Playlist/Playlist'
 import Playlists from './Playlists/Playlists'
 
-const Landing = () => (
+const Landing2 = () => (
     <Layout>
-        {/*<Playlist />*/}
-        <Playlists />
+        <Playlist />
     </Layout>
 )
 
-export default Landing
+export default Landing2

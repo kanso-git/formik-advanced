@@ -53,6 +53,7 @@ export const getDefaultFormValues = (): IPlaylist => {
 export const getDefaultFromValuesTest = (): IPlaylist => ({
     id: generate(),
     name: 'my first playlist',
+    media: '51090.jpg',
     slides: [
         {
             id: generate(),
@@ -64,6 +65,7 @@ export const getDefaultFromValuesTest = (): IPlaylist => ({
             media: '51090.jpg',
             state: SlideState.PUBLISHED,
         },
+
         {
             id: generate(),
             name: 'second Slide',
@@ -107,5 +109,47 @@ export const getDefaultFromValuesTest = (): IPlaylist => ({
             media: 'colby_moore--one_big_picnic.mp4',
             state: SlideState.PUBLISHED,
         },
+        {
+            id: generate(),
+            name: 'second Slide',
+            startDate: new Date(),
+            endDate: undefined,
+            duration: 10,
+            volume: 0,
+            media: '51090.jpg',
+            state: SlideState.PUBLISHED,
+        },
+        {
+            id: generate(),
+            name: 'second Slide',
+            startDate: new Date(),
+            endDate: undefined,
+            duration: 10,
+            volume: 0,
+            media: '_r75EWFEN.png',
+            state: SlideState.PUBLISHED,
+        },
+        {
+            id: generate(),
+            name: 'second Slide',
+            startDate: new Date(),
+            endDate: undefined,
+            duration: 10,
+            volume: 0,
+            media: '88i0hZ-hV_handshaking.png',
+            state: SlideState.PUBLISHED,
+        },
+        {
+            id: generate(),
+            name: 'colby_moore--one_big_picnic',
+            startDate: new Date(),
+            endDate: undefined,
+            duration: 5,
+            volume: 30,
+            media: 'colby_moore--one_big_picnic.mp4',
+            state: SlideState.PUBLISHED,
+        },
     ],
 })
+
+export const getPlaylits = (): IPlaylist[] => [getDefaultFromValuesTest()]

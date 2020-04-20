@@ -51,7 +51,6 @@ const DraggablePlaylist = SortableContainer((props: DraggablePlaylistProps) => {
                         startDate: new Date(),
                         endDate: undefined,
                         media: null,
-                        mediaDeleted: false,
                     })
                 }}
             >

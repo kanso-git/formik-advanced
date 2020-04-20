@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: theme.spacing(2),
                 width: '100%',
             },
+            maxHeight: 'calc(100vh - 385px)',
+            overflow: 'scroll',
         },
     })
 )
