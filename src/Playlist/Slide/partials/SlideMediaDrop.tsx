@@ -16,55 +16,25 @@ import {
 const logger = AppLogger.getInstance()
 
 interface MediaDropProps {
-    value: string
+    value: string //mediaValue
     form: FormikProps<IPlaylist>
     name: string //media
-    mediaDeleted: string
-    mediaUploadName: string
+    deletedMedia: string
     slideIndex: number
 }
 
-const MediaDrop = (props: MediaDropProps) => {
-    let {
-        value: media,
-        form,
-        name,
-        mediaDeleted,
-        mediaUploadName,
-        slideIndex,
-    } = props
+const SlideMediaDrop = (props: MediaDropProps) => {
+    let { value: mediaValue, form, name, deletedMedia, slideIndex } = props
 
     const touched = getIn(form.touched, name)
-    const mediaDeletedFlag = getIn(form.values, mediaDeleted)
-    const mediaUploadNameValue = getIn(form.values, mediaUploadName)
+    const error = getIn(form.errors, name)
+    const deletedMediaValue = getIn(form.values, deletedMedia)
 
     /**
      * check if we have media content
      */
     const hasMedia = (): boolean => {
-        // wehen initial media is deleted check if we have a preview
-        if (mediaDeletedFlag) {
-            return mediaUploadNameValue ? true : false
-        } else {
-            // media not deleted : 2 cases new slide or saved slide
-            return media || mediaUploadNameValue ? true : false
-        }
-    }
-
-    /**
-     * get the current media url
-     *
-     */
-    const getCurrentMedia = (): string | undefined => {
-        let currentMediaUrl: any = ''
-        if (mediaDeletedFlag) {
-            currentMediaUrl = mediaUploadNameValue
-        } else {
-            currentMediaUrl = mediaUploadNameValue
-                ? getMediaUrl(mediaUploadNameValue)
-                : getMediaUrl(media)
-        }
-        return currentMediaUrl
+        return mediaValue && mediaValue.trim().length > 0 ? true : false
     }
 
     /**
@@ -85,38 +55,42 @@ const MediaDrop = (props: MediaDropProps) => {
     ): Promise<any> => {
         e.stopPropagation()
         e.preventDefault()
+
+        const mySlide = form.values.slides.find((s, i) => i === slideIndex)
+        const mediaType = getMediaType(mediaValue)
+
+        // mediaDeletedFalg is set only when deleting the saved media
+        if (mySlide && mediaValue && !deletedMediaValue) {
+            mySlide.media = ''
+            mySlide.name = ''
+            mySlide.deletedMedia = mediaValue
+
+            const currentSlides = form.values.slides
+            currentSlides.splice(slideIndex, 1, mySlide)
+
+            form.setValues({
+                ...form.values,
+                slides: [...currentSlides],
+            })
+        } else if (mySlide && mediaValue && mediaType) {
+            await deleteMedia(mediaValue, mediaType)
+
+            mySlide.media = ''
+            mySlide.name = ''
+            const currentSlides = form.values.slides
+            currentSlides.splice(slideIndex, 1, mySlide)
+
+            form.setValues({
+                ...form.values,
+                slides: [...currentSlides],
+            })
+        }
         //when we click on the x button set the filed as touched
         form.setFieldTouched(name)
-        // mediaDeletedFalg is set only when deleting the saved media
-        if (media && !mediaDeletedFlag) {
-            form.setFieldValue(mediaDeleted, true)
-        } else if (mediaUploadNameValue) {
-            const mySlide = form.values.slides.find((s, i) => i === slideIndex)
-            const mediaType = getMediaType(mediaUploadNameValue)
-            if (mySlide && mediaType) {
-                await deleteMedia(mediaUploadNameValue, mediaType)
-
-                mySlide.mediaUploadName = undefined
-                mySlide.name = ''
-                const currentSlides = form.values.slides
-                currentSlides.splice(slideIndex, 1, mySlide)
-
-                form.setValues({
-                    ...form.values,
-                    slides: [...currentSlides],
-                })
-            }
-        }
     }
-    /**
-     * TODO test the below method
-     */
+
     const hasMediaError = (): boolean => {
-        if (mediaDeletedFlag) {
-            return mediaUploadNameValue ? false : true
-        } else {
-            return !media && touched ? true : false
-        }
+        return error && touched ? true : false
     }
 
     const renderHtml5Video = (src: string): JSX.Element => {
@@ -137,16 +111,12 @@ const MediaDrop = (props: MediaDropProps) => {
     }
 
     const renderMediaContent = () => {
-        if (getCurrentMedia()) {
-            const mediaContent = mediaUploadNameValue
-                ? mediaUploadNameValue
-                : media
-
-            if (isImage(mediaContent)) {
-                return <img src={getCurrentMedia()} alt={''} />
-            } else if (isViedo(mediaContent)) {
-                const currentMedia = getCurrentMedia()
-                return currentMedia && renderHtml5Video(currentMedia)
+        const mediaUrl = getMediaUrl(mediaValue) //the url to mediaValue
+        if (mediaUrl) {
+            if (isImage(mediaValue)) {
+                return <img src={mediaUrl} alt={''} />
+            } else if (isViedo(mediaValue)) {
+                return renderHtml5Video(mediaUrl)
             }
         }
     }
@@ -205,7 +175,7 @@ const MediaDrop = (props: MediaDropProps) => {
                             </ul>
                         </div>
                         {hasMediaError() && (
-                            <div className="error-message">Media required!</div>
+                            <div className="error-message">{error}</div>
                         )}
                     </div>
                 )}
@@ -246,7 +216,7 @@ const MediaDrop = (props: MediaDropProps) => {
                             name: file.name,
                             type: mediaType,
                         })
-                        mySlide.mediaUploadName = fileName
+                        mySlide.media = fileName
                         mySlide.name = file.name
                         const currentSlides = form.values.slides
                         currentSlides.splice(slideIndex, 1, mySlide)
@@ -270,4 +240,4 @@ const MediaDrop = (props: MediaDropProps) => {
     // closeWhite penWhite
     return <Fragment>{hasMedia() ? renderMedia() : renderDropZone()}</Fragment>
 }
-export default MediaDrop
+export default SlideMediaDrop

@@ -69,6 +69,12 @@ interface DetailProps {
         value: any,
         shouldValidate?: boolean | undefined
     ) => void
+    fieldTouche: (
+        field: string,
+        isTouched?: boolean | undefined,
+        shouldValidate?: boolean | undefined
+    ) => void
+    setValues: (values: IPlaylist, shouldValidate?: boolean | undefined) => void
     values: IPlaylist
     touched: FormikTouched<IPlaylist>
     errors: FormikErrors<IPlaylist>
@@ -76,9 +82,11 @@ interface DetailProps {
 
 export default function Detail({
     fieldChange,
+    fieldTouche,
     values,
     touched,
     errors,
+    setValues,
 }: DetailProps) {
     const classes = useStyles()
     const theme = useTheme()
@@ -93,25 +101,13 @@ export default function Detail({
         return duration
     }
 
-    const getMediaFileName = (
-        mediaDeleted: boolean | undefined,
-        mediaUploadName: string | undefined,
-        media: string | undefined
-    ): string | undefined => {
-        let currentMediaUrl: any = ''
-        if (mediaDeleted) {
-            currentMediaUrl = mediaUploadName
-        } else {
-            currentMediaUrl = mediaUploadName ? mediaUploadName : media
-        }
-        return currentMediaUrl
-    }
-
     return (
         <Card className={classes.root}>
             <div className={classes.cover}>
                 <MediaDrop
                     fieldChange={fieldChange}
+                    fieldTouche={fieldTouche}
+                    setValues={setValues}
                     touched={touched}
                     errors={errors}
                     values={values}
@@ -148,14 +144,10 @@ export default function Detail({
                             </ListItemIcon>
                             <Typography component="h5" variant="h5">
                                 {
-                                    /** just for now not correct since  */
                                     values.slides.filter((s) => {
-                                        const url = getMediaFileName(
-                                            s.mediaDeleted,
-                                            s.mediaUploadName,
-                                            s.media
-                                        )
-                                        return url ? isViedo(url) : false
+                                        return s.media
+                                            ? isViedo(s.media)
+                                            : false
                                     }).length
                                 }
                                 &nbsp;
@@ -167,12 +159,9 @@ export default function Detail({
                             <Typography component="h5" variant="h5">
                                 {
                                     values.slides.filter((s) => {
-                                        const url = getMediaFileName(
-                                            s.mediaDeleted,
-                                            s.mediaUploadName,
-                                            s.media
-                                        )
-                                        return url ? isImage(url) : false
+                                        return s.media
+                                            ? isImage(s.media)
+                                            : false
                                     }).length
                                 }
                                 &nbsp;

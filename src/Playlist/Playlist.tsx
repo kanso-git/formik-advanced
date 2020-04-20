@@ -83,6 +83,8 @@ const Playlist = () => {
                             handleChange,
                             handleBlur,
                             setFieldValue,
+                            setFieldTouched,
+                            setValues,
                         }) => {
                             return (
                                 <Form>
@@ -93,7 +95,11 @@ const Playlist = () => {
                                                     values={values}
                                                     touched={touched}
                                                     errors={errors}
+                                                    setValues={setValues}
                                                     fieldChange={setFieldValue}
+                                                    fieldTouche={
+                                                        setFieldTouched
+                                                    }
                                                 />
                                             </div>
                                         </div>

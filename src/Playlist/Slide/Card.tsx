@@ -103,8 +103,7 @@ export default function MediaCard(props: MediaCardProps) {
             */}
             <Field
                 name={`slides[${index}].media`}
-                mediaDeleted={`slides[${index}].mediaDeleted`}
-                mediaUploadName={`slides[${index}].mediaUploadName`}
+                deletedMedia={`slides[${index}].deletedMedia`}
                 form={props.form}
                 slideIndex={index}
                 as={SlideMediaDrop}

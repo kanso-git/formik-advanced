@@ -5,11 +5,11 @@ import { FormikProps, getIn, FormikTouched, FormikErrors } from 'formik'
 import { AppLogger } from '../AppLogger'
 import { IPlaylist } from './IPlaylist'
 import {
-    getMediaUrl,
     isImage,
     isViedo,
     deleteMedia,
     uploadMedia,
+    getMediaUrl,
 } from '../common/utils'
 import { MediaType } from '../generated/globalTypes'
 import { penWhite, cloudComputing } from '../images'
@@ -23,44 +23,29 @@ interface MediaDropProps {
         value: any,
         shouldValidate?: boolean | undefined
     ) => void
+    fieldTouche: (
+        field: string,
+        isTouched?: boolean | undefined,
+        shouldValidate?: boolean | undefined
+    ) => void
+    setValues: (values: IPlaylist, shouldValidate?: boolean | undefined) => void
     touched: FormikTouched<IPlaylist>
     errors: FormikErrors<IPlaylist>
 }
 
 const MediaDrop = (props: MediaDropProps) => {
-    let { values, touched, fieldChange, errors } = props
+    let { values, touched, fieldChange, fieldTouche, setValues, errors } = props
 
     const isTouched = touched.media
-    const mediaDeleted = values.mediaDeleted
-    const mediaUploadName = values.mediaUploadName
-    const media = values.media
+    const error = errors.media
+
+    const deletedMediaValue = values.deletedMedia
+    const mediaValue = values.media
     /**
      * check if we have media content
      */
     const hasMedia = (): boolean => {
-        // wehen initial media is deleted check if we have a preview
-        if (mediaDeleted) {
-            return mediaUploadName ? true : false
-        } else {
-            // media not deleted : 2 cases new slide or saved slide
-            return media || mediaUploadName ? true : false
-        }
-    }
-
-    /**
-     * get the current media url
-     *
-     */
-    const getCurrentMedia = (): string | undefined => {
-        let currentMediaUrl: any = ''
-        if (mediaDeleted) {
-            currentMediaUrl = mediaUploadName
-        } else {
-            currentMediaUrl = mediaUploadName
-                ? getMediaUrl(mediaUploadName)
-                : getMediaUrl(media)
-        }
-        return currentMediaUrl
+        return mediaValue && mediaValue.trim().length > 0 ? true : false
     }
 
     /**
@@ -78,30 +63,26 @@ const MediaDrop = (props: MediaDropProps) => {
     const handleDeleteMedia = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ): Promise<any> => {
+        // make sure that the form is not submitted
         e.stopPropagation()
         e.preventDefault()
-        //when we click on the x button set the filed as touched
-        //fieldChange.setFieldTouched(name)
-        // mediaDeletedFalg is set only when deleting the saved media
-        if (media && !mediaDeleted) {
-            fieldChange('mediaDeleted', true)
-        } else if (mediaUploadName) {
-            const mediaType = getMediaType(mediaUploadName)
+
+        // deletedMediaValue is set only when deleting the saved media
+        if (mediaValue && !deletedMediaValue) {
+            setValues({ ...values, deletedMedia: mediaValue, media: undefined })
+        } else if (mediaValue) {
+            const mediaType = getMediaType(mediaValue)
             if (mediaType) {
-                await deleteMedia(mediaUploadName, mediaType)
-                fieldChange('mediaUploadName', undefined)
+                await deleteMedia(mediaValue, mediaType)
+                fieldChange('media', undefined)
             }
         }
+        //when we click on the x button set the filed as touched
+        fieldTouche('media')
     }
-    /**
-     * TODO test the below method
-     */
+
     const hasMediaError = (): boolean => {
-        if (mediaDeleted) {
-            return mediaUploadName ? false : true
-        } else {
-            return !media && isTouched ? true : false
-        }
+        return error && isTouched ? true : false
     }
 
     const renderHtml5Video = (src: string): JSX.Element => {
@@ -122,13 +103,12 @@ const MediaDrop = (props: MediaDropProps) => {
     }
 
     const renderMediaContent = () => {
-        const mediaContent = mediaUploadName ? mediaUploadName : media
-        if (mediaContent) {
-            if (isImage(mediaContent)) {
-                return <img src={getCurrentMedia()} alt={''} />
-            } else if (isViedo(mediaContent)) {
-                const currentMedia = getCurrentMedia()
-                return currentMedia && renderHtml5Video(currentMedia)
+        const mediaUrl = getMediaUrl(mediaValue)
+        if (mediaValue && mediaUrl) {
+            if (isImage(mediaValue)) {
+                return <img src={mediaUrl} alt={''} />
+            } else if (isViedo(mediaValue)) {
+                return renderHtml5Video(mediaUrl)
             }
         }
     }
@@ -187,7 +167,7 @@ const MediaDrop = (props: MediaDropProps) => {
                             </ul>
                         </div>
                         {hasMediaError() && (
-                            <div className="error-message">Media required!</div>
+                            <div className="error-message">{error}</div>
                         )}
                     </div>
                 )}
@@ -204,8 +184,6 @@ const MediaDrop = (props: MediaDropProps) => {
         /**
          * in order to improve the performance we have to implement the folowing
          * 1 - upload the media to the server directly
-         * 2 - make name ready only - it will be the media name
-         * 3 - add delete card button
          */
         myFileItemReader.addEventListener(
             'load',
@@ -223,7 +201,7 @@ const MediaDrop = (props: MediaDropProps) => {
                         name: file.name,
                         type: mediaType,
                     })
-                    fieldChange('mediaUploadName', fileName)
+                    fieldChange('media', fileName)
                 }
             },
             false

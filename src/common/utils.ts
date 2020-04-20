@@ -38,15 +38,19 @@ export const buildMediaURL = (
 }
 export const isImage = (fileName: string): boolean => {
     const imgRegex = /.(jpg|jpeg|png|gif|svg)$/i
-    return fileName ? !!fileName.match(imgRegex) : false
+    return fileName && fileName.trim().length > 0
+        ? !!fileName.match(imgRegex)
+        : false
 }
 export const isViedo = (fileName: string): boolean => {
     const videoRegex = /.(mov|avi|wmv|flv|3gp|mp4|mpg)$/i
-    return fileName ? !!fileName.match(videoRegex) : false
+    return fileName && fileName.trim().length > 0
+        ? !!fileName.match(videoRegex)
+        : false
 }
 
 export const getMediaUrl = (value: string | undefined): string | undefined => {
-    if (value) {
+    if (value && value.trim().length > 0) {
         if (isImage(value)) {
             return buildMediaURL(value, MediaType.SLIDE_IMAGE)
         } else {

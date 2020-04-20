@@ -22,8 +22,7 @@ export interface ISlide {
     duration: number
     volume: number
     media: string
-    mediaDeleted?: boolean
-    mediaUploadName?: string
+    deletedMedia?: string
     createdAt?: any
     createdUser?: IUser
     updatedAt?: any
@@ -35,8 +34,7 @@ export interface IPlaylist {
     name: string
     description?: string
     media?: string
-    mediaDeleted?: boolean
-    mediaUploadName?: string
+    deletedMedia?: string
     locked?: boolean
     createdAt?: any
     createdUser?: IUser
