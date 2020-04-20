@@ -38,55 +38,44 @@ const DraggablePlaylist = SortableContainer((props: DraggablePlaylistProps) => {
                 )
             })}
 
-            <div className="card-container">
-                <div className="card">
-                    <button
-                        type="button"
-                        style={{
-                            height: '100%',
-                            border: 'none',
-                        }}
-                        onClick={(e) => {
-                            //if you don't preventDefault  the form will submit
-                            e.preventDefault()
-                            push({
-                                id: generate(),
-                                name: '',
-                                duration: 5,
-                                volume: 30,
-                                startDate: new Date(),
-                                endDate: undefined,
-                                media: null,
-                                mediaUpload: null,
-                                previewURL: null,
-                                mediaDeleted: false,
-                            })
-                        }}
+            <div
+                className="add-new-slide"
+                onClick={(e) => {
+                    //if you don't preventDefault  the form will submit
+                    e.preventDefault()
+                    push({
+                        id: generate(),
+                        name: '',
+                        duration: 5,
+                        volume: 30,
+                        startDate: new Date(),
+                        endDate: undefined,
+                        media: null,
+                        mediaDeleted: false,
+                    })
+                }}
+            >
+                <div className="icon">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="36.712"
+                        height="36.712"
+                        viewBox="0 0 36.712 36.712"
                     >
-                        <div className="icon">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="17.992"
-                                height="17.992"
-                                viewBox="0 0 17.992 17.992"
-                            >
-                                <g
-                                    id="plus-yellow-small"
-                                    transform="translate(17.992) rotate(90)"
-                                >
-                                    <g id="Group_40872" data-name="Group 40872">
-                                        <path
-                                            id="Path_115006"
-                                            data-name="Path 115006"
-                                            d="M17.289,8.293H9.7V.7A.7.7,0,1,0,8.293.7v7.59H.7A.7.7,0,1,0,.7,9.7h7.59v7.59a.7.7,0,0,0,1.406,0V9.7h7.59a.7.7,0,0,0,0-1.406Z"
-                                            fill="#fca311"
-                                        />
-                                    </g>
-                                </g>
-                            </svg>
-                        </div>
-                        <h4>Ajouter un autre module</h4>
-                    </button>
+                        <g
+                            id="plus-yellow"
+                            transform="translate(36.712) rotate(90)"
+                        >
+                            <g id="Group_40872" data-name="Group 40872">
+                                <path
+                                    id="Path_115006"
+                                    data-name="Path 115006"
+                                    d="M35.278,16.922H19.79V1.434a1.434,1.434,0,1,0-2.868,0V16.922H1.434a1.434,1.434,0,1,0,0,2.868H16.922V35.278a1.434,1.434,0,0,0,2.868,0V19.79H35.278a1.434,1.434,0,0,0,0-2.868Z"
+                                    fill="#fca311"
+                                />
+                            </g>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>

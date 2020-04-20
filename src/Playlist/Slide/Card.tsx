@@ -18,7 +18,7 @@ import IconButton from '@material-ui/core/IconButton'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import MenuSlider from './partials/MenuSlider'
 import DatePicker2 from './partials/DatePicker2'
-import MediaDrop from './partials/MediaDrop'
+import SlideMediaDrop from './partials/SlideMediaDrop'
 import { getDefaultFromValuesTest, ISlide, IPlaylist } from '../IPlaylist'
 import TimeSlider from './partials/TimeSlider'
 import { isImage } from '../../common/utils'
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
         cardContent: {},
         input: {
             width: '100%',
+            marginTop: 0,
         },
         expand: {
             transform: 'rotate(0deg)',
@@ -106,7 +107,7 @@ export default function MediaCard(props: MediaCardProps) {
                 mediaUploadName={`slides[${index}].mediaUploadName`}
                 form={props.form}
                 slideIndex={index}
-                as={MediaDrop}
+                as={SlideMediaDrop}
             />
             <CardContent className={classes.cardContent}>
                 <Typography gutterBottom variant="h5" component="h2">

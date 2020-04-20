@@ -38,11 +38,11 @@ export const buildMediaURL = (
 }
 export const isImage = (fileName: string): boolean => {
     const imgRegex = /.(jpg|jpeg|png|gif|svg)$/i
-    return !!fileName.match(imgRegex)
+    return fileName ? !!fileName.match(imgRegex) : false
 }
 export const isViedo = (fileName: string): boolean => {
     const videoRegex = /.(mov|avi|wmv|flv|3gp|mp4|mpg)$/i
-    return !!fileName.match(videoRegex)
+    return fileName ? !!fileName.match(videoRegex) : false
 }
 
 export const getMediaUrl = (value: string | undefined): string | undefined => {

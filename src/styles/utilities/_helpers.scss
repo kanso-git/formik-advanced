@@ -820,3 +820,37 @@
     }
 }
 */
+
+.slides-h3 {
+    display: inline-block;
+    margin-left: 30px !important;
+    margin-bottom: -20px !important;
+}
+.add-new-slide {
+    display: flex;
+    width: 345px;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+        background: #ffffff;
+        border: 4px solid #fca311;
+        cursor: pointer;
+        @extend %tr;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg path {
+            @extend %tr;
+        }
+        &:hover {
+            background: #fca311;
+            svg path {
+                fill: #ffffff;
+            }
+        }
+    }
+}

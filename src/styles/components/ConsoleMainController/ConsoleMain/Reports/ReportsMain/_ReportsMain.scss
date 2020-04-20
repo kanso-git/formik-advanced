@@ -1,20 +1,21 @@
-.reports {
+.reports,
+.card {
     .page-head-container .page-title h1 {
         color: #195190;
     }
     .empty-screen {
         .icon {
             background: #ffffff;
-            border: 2px solid #FCA311;
+            border: 2px solid #fca311;
             cursor: pointer;
             @extend %tr;
             svg path {
                 @extend %tr;
             }
             &:hover {
-                background: #FCA311;
+                background: #fca311;
                 svg path {
-                    fill:#ffffff;
+                    fill: #ffffff;
                 }
             }
         }
@@ -25,7 +26,7 @@
             margin-top: rem(20px);
         }
         .empty-screen-description {
-            color: #373C46;
+            color: #373c46;
             font-size: rem(22px);
             line-height: rem(37px);
             @extend %din;
@@ -37,14 +38,13 @@
         flex-direction: row !important;
         max-height: calc(100vh - 190px);
         flex-wrap: wrap;
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             flex-direction: column !important;
             max-height: unset;
         }
         .col {
             max-height: 100%;
-            @media(max-width: 1200px) {
-                
+            @media (max-width: 1200px) {
             }
         }
     }
@@ -62,7 +62,7 @@
         min-height: 300px;
         padding: rem(15px);
 
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             margin-left: 0;
             margin-top: 20px;
             flex-grow: 0 !important;
@@ -75,10 +75,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            
+
             .icon {
                 background: #ffffff;
-                border: 1px solid #FCA311;
+                border: 1px solid #fca311;
                 cursor: pointer;
                 @extend %tr;
                 width: 66px;
@@ -92,7 +92,7 @@
                 }
             }
             h4 {
-                color: #373C46;
+                color: #373c46;
                 font-size: rem(16px);
                 @extend %din;
                 margin-top: rem(15px);
@@ -100,14 +100,12 @@
 
             &:hover {
                 .icon {
-                    background: #FCA311;
+                    background: #fca311;
                     svg path {
-                        fill:#ffffff;
+                        fill: #ffffff;
                     }
                 }
             }
         }
-
-        
     }
 }

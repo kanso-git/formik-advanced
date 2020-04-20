@@ -7,7 +7,22 @@ import arrayMove from 'array-move'
 import MyField from '../fields/MyField'
 import TopHeader from '../TopHeader'
 import { getDefaultFromValuesTest } from './IPlaylist'
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Detail from './Detail'
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            '& > *': {
+                margin: theme.spacing(2),
+                width: '100%',
+            },
+        },
+    })
+)
 const validationSchema = yup.object().shape({
     id: yup.string(),
     name: yup.string().required('Name is Required'),
@@ -19,7 +34,7 @@ const validationSchema = yup.object().shape({
             name: yup.string().required('Name is Required'),
             media: yup.string().required('Media is required'),
             volume: yup.number(),
-            duration: yup.number().min(3).max(10),
+            duration: yup.number(),
             enabled: yup.boolean(),
             startDate: yup.date().required('Start Date is required'),
             endDate: yup
@@ -33,6 +48,7 @@ const validationSchema = yup.object().shape({
     ),
 })
 const Playlist = () => {
+    const classes = useStyles()
     const testData = getDefaultFromValuesTest()
 
     const myArrayMove = ({ oldIndex, newIndex }: any, form: any) => {
@@ -49,7 +65,7 @@ const Playlist = () => {
             <header className="dashboard-header">
                 <TopHeader />
             </header>
-            <div className="dashboard-content">
+            <div className="dashboard-content dashboard-forms">
                 <div className="main-content select">
                     <Formik
                         validationSchema={validationSchema}
@@ -66,59 +82,80 @@ const Playlist = () => {
                             touched,
                             handleChange,
                             handleBlur,
+                            setFieldValue,
                         }) => {
                             return (
                                 <Form>
                                     <div className="playlist-container">
                                         <div className="detail-block">
-                                            <MyField name="name" label="name" />
-                                            <MyField
-                                                name="description"
-                                                label="description"
-                                            />
+                                            <div className="detail-content">
+                                                <Detail
+                                                    values={values}
+                                                    touched={touched}
+                                                    errors={errors}
+                                                    fieldChange={setFieldValue}
+                                                />
+                                            </div>
+                                        </div>
+                                        <Paper
+                                            elevation={3}
+                                            className={classes.root}
+                                        >
+                                            <h3 className="slides-h3">
+                                                Playlist Slides
+                                            </h3>
+                                            <FieldArray name="slides">
+                                                {({ form, push }) => {
+                                                    //console.log(form.errors)
+
+                                                    return (
+                                                        <DraggablePlaylist
+                                                            helperClass="sortable-slide-cards"
+                                                            slides={
+                                                                form.values
+                                                                    .slides
+                                                            }
+                                                            form={form}
+                                                            onSortEnd={(
+                                                                props: any
+                                                            ) =>
+                                                                myArrayMove(
+                                                                    props,
+                                                                    form
+                                                                )
+                                                            }
+                                                            axis="xy"
+                                                            distance={50}
+                                                            push={push}
+                                                        />
+                                                    )
+                                                }}
+                                            </FieldArray>
+                                        </Paper>
+                                        <div className="form-footer">
+                                            <div className="footer-actions">
+                                                <button
+                                                    type="reset"
+                                                    className="btn btn-cancel"
+                                                >
+                                                    Annuler
+                                                </button>
+                                                <button
+                                                    type="submit"
+                                                    className="btn btn-submit"
+                                                >
+                                                    Save
+                                                </button>
+                                            </div>
                                         </div>
 
-                                        <FieldArray name="slides">
-                                            {({ form, push }) => {
-                                                //console.log(form.errors)
-
-                                                return (
-                                                    <DraggablePlaylist
-                                                        helperClass="sortable-slide-cards"
-                                                        slides={
-                                                            form.values.slides
-                                                        }
-                                                        form={form}
-                                                        onSortEnd={(
-                                                            props: any
-                                                        ) =>
-                                                            myArrayMove(
-                                                                props,
-                                                                form
-                                                            )
-                                                        }
-                                                        axis="xy"
-                                                        distance={50}
-                                                        push={push}
-                                                    />
-                                                )
-                                            }}
-                                        </FieldArray>
-
-                                        <div className="playlist-actions">
-                                            <button type="submit">
-                                                save playlist
-                                            </button>
-                                            <button type="reset">cancel</button>
-                                        </div>
-
-                                        <pre>
+                                        {/*       <pre>
                                             {JSON.stringify(
                                                 values,
                                                 undefined,
                                                 3
                                             )}
-                                        </pre>
+                                            </pre>*/}
                                     </div>
                                 </Form>
                             )

@@ -34,9 +34,9 @@ export interface IPlaylist {
     id?: string
     name: string
     description?: string
-    coverImage?: string
-    coverImageUpload?: string
-    coverImageDeleted?: boolean
+    media?: string
+    mediaDeleted?: boolean
+    mediaUploadName?: string
     locked?: boolean
     createdAt?: any
     createdUser?: IUser

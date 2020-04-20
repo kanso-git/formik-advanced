@@ -1,5 +1,4 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react'
-
 import Dropzone from 'react-dropzone'
 import { cloudComputing, penWhite } from '../../../images'
 import { AppLogger } from '../../../AppLogger'
@@ -15,13 +14,6 @@ import {
 } from '../../../common/utils'
 
 const logger = AppLogger.getInstance()
-
-interface MediaDropProps {
-    mediaUrl?: string
-    mediaType: MediaType
-    mediaChange: (e: any) => void
-    mediaDelete: (e: boolean) => void
-}
 
 interface MediaDropProps {
     value: string
@@ -87,7 +79,12 @@ const MediaDrop = (props: MediaDropProps) => {
         }
         return mediaType
     }
-    const handleDeleteMedia = async (): Promise<any> => {
+
+    const handleDeleteMedia = async (
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ): Promise<any> => {
+        e.stopPropagation()
+        e.preventDefault()
         //when we click on the x button set the filed as touched
         form.setFieldTouched(name)
         // mediaDeletedFalg is set only when deleting the saved media
