@@ -10,6 +10,7 @@ import {
     deleteMedia,
     uploadMedia,
     getMediaUrl,
+    CARD_WIDTH,
 } from '../common/utils'
 import { MediaType } from '../generated/globalTypes'
 import { penWhite, cloudComputing } from '../images'
@@ -90,7 +91,7 @@ const MediaDrop = (props: MediaDropProps) => {
             <video
                 id={`playlistVideo`}
                 style={{
-                    width: '345px',
+                    width: `${CARD_WIDTH}px`,
                     borderTopLeftRadius: 8,
                     borderTopRightRadius: 8,
                 }}
@@ -106,7 +107,15 @@ const MediaDrop = (props: MediaDropProps) => {
         const mediaUrl = getMediaUrl(mediaValue)
         if (mediaValue && mediaUrl) {
             if (isImage(mediaValue)) {
-                return <img src={mediaUrl} alt={''} />
+                return (
+                    <img
+                        src={mediaUrl}
+                        style={{
+                            width: `${CARD_WIDTH}px`,
+                        }}
+                        alt={mediaValue}
+                    />
+                )
             } else if (isViedo(mediaValue)) {
                 return renderHtml5Video(mediaUrl)
             }
